@@ -10,9 +10,6 @@ const paths = [
   '/resume',
   '/explore',
   '/contact',
-  '/resume.json',
-  '/resume.md',
-  '/llms.txt',
 ];
 
 const escapeXml = (value: string) =>
