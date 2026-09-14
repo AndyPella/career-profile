@@ -21,6 +21,11 @@ a {
   color: inherit;
 }
 
+a:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
 .site-shell {
   width: min(72rem, calc(100% - 2rem));
   margin: 0 auto;
@@ -164,8 +169,8 @@ main {
   margin-top: 0.5rem;
 }
 
-.machine-note {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #d4d4d4;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
