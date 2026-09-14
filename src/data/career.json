@@ -225,13 +225,11 @@
     "note":"Release 1 recruiter contact route is LinkedIn unless another public contact method is explicitly approved."
   },
   "resume": {
-    "headline":"Senior Product Manager | Observability | SRE Platforms | Enterprise Platforms | Automation | AI",
+    "headline":"Senior Product Manager | Observability & SRE Platforms | Enterprise Platforms | Automation & AI",
     "profileId":"andrew-pella",
     "experienceIds":["salesforce-sre-product","salesforce-mobile-windows-product","salesforce-client-engineering","portland-rescue-mission","hp-technical-consultant","conway-senior-systems-analyst","conway-systems-analyst","entex","peci"],
     "projectIds":["otel-evaluation","northstar-ridge","agentic-career-workflow"],
-    "skillIds":["product-management","product-leadership","observability","sre-platforms","logging","opentelemetry","incident-management","automation","enterprise-platforms","enterprise-mobility","ai-assisted-workflows","agentic-ai"],
     "education":"College coursework and individual study; no degree awarded.",
-    "certifications":[],
-    "assemblyRules":["Assemble human and machine resumes from referenced objects in this model.","Do not add claims not present in this model.","Preserve role-boundary and disclosure notes when transforming content.","Generate JSON Resume-compatible output as a downstream adapter rather than treating resume.json as an independent authority."]
+    "certifications":[]
   }
 }
