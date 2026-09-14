@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import career from '../data/career.json';
+
+const resume = career.resume;
+const experiences = resume.experienceIds
+  .map((id) => career.experience.find((role) => role.id === id))
+  .filter(Boolean);
+const projects = resume.projectIds
+  .map((id) => career.projects.find((project) => project.id === id))
+  .filter(Boolean);
+---
+
+<BaseLayout title="Resume — Andrew Pella" description={resume.headline}>
+  <section class="page-intro resume-heading">
+    <p class="eyebrow">Public resume</p>
+    <h1>Andrew Pella</h1>
+    <p class="hero-positioning">{resume.headline}</p>
+    <p>{career.profile.location}</p>
+  </section>
+
+  <section class="section resume-section">
+    <h2>Summary</h2>
+    <p>{career.profile.summary}</p>
+    <p>{career.profile.summaryDetail}</p>
+  </section>
+
+  <section class="section resume-section">
+    <h2>Experience</h2>
+    <div class="stack-list compact-list">
+      {experiences.map((role) => role && (
+        <article class="experience-entry">
+          <h3>{role.title}</h3>
+          {'functionalAssignment' in role && role.functionalAssignment && <p class="card-role">{role.functionalAssignment}</p>}
+          <p>{role.employer} · {role.dateDisplay}</p>
+          <p>{role.summary}</p>
+          <ul>{role.highlights.map((highlight) => <li>{highlight}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section resume-section">
+    <h2>Selected projects</h2>
+    <div class="stack-list compact-list">
+      {projects.map((project) => project && (
+        <article class="experience-entry">
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section resume-section">
+    <h2>Education</h2>
+    <p>{resume.education}</p>
+  </section>
+
+  <section class="section machine-resource-note" aria-labelledby="formats-heading">
+    <h2 id="formats-heading">Machine-readable formats</h2>
+    <p>JSON and Markdown resume formats will be available here as additional public resources are added.</p>
+  </section>
+</BaseLayout>

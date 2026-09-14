@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import career from '../data/career.json';
+
+const skillMap = new Map(career.skills.map((skill) => [skill.id, skill.label]));
+const recentExperienceIds = new Set([
+  'salesforce-sre-product',
+  'salesforce-mobile-windows-product',
+  'salesforce-client-engineering',
+]);
+const recentExperience = career.experience.filter((role) => recentExperienceIds.has(role.id));
+const earlierExperience = career.experience.filter((role) => !recentExperienceIds.has(role.id));
+const evidenceGroups = [
+  {
+    title: 'Product leadership for observability and SRE platforms',
+    ids: ['salesforce-sre-product'],
+    summary: 'Product and portfolio leadership across Logging, Monitoring, Tools Development, and Incident Management, including roadmaps, intake, prioritization, platform stewardship, and executive review.'
+  },
+  {
+    title: 'OpenTelemetry evaluation',
+    ids: ['salesforce-sre-product'],
+    summary: 'Product-led feasibility and production dual-run work covering policy, security, transport, storage, development testing, operational overhead, and complexity.',
+    href: '/projects/otel-evaluation'
+  },
+  {
+    title: 'Automation and AI-assisted workflows',
+    ids: ['salesforce-sre-product'],
+    summary: 'AI-assisted workflow design and governed implementation with human review, validation, traceability, access boundaries, and exception handling.',
+    href: '/projects/agentic-job-search'
+  },
+  {
+    title: 'Enterprise platforms and mobility',
+    ids: ['salesforce-mobile-windows-product', 'salesforce-client-engineering'],
+    summary: 'Product ownership for enterprise mobile and Windows services, backed by earlier hands-on infrastructure and mobility engineering experience.'
+  },
+];
+---
+
+<BaseLayout title="Experience — Andrew Pella" description="Product leadership experience across observability, SRE platforms, enterprise platforms, automation, and AI-assisted systems.">
+  <section class="page-intro">
+    <p class="eyebrow">Experience</p>
+    <h1>Product leadership with deep technical context</h1>
+    <p class="hero-positioning">Andrew's recent work centers on product ownership and product management for observability, SRE, and enterprise platforms, supported by earlier hands-on engineering and operations experience.</p>
+  </section>
+
+  <section class="section" aria-labelledby="evidence-heading">
+    <p class="section-kicker">Search and recruiter context</p>
+    <h2 id="evidence-heading">Evidence by domain</h2>
+    <div class="card-grid">
+      {evidenceGroups.map((group) => (
+        <article class="card">
+          <h3>{group.title}</h3>
+          <p>{group.summary}</p>
+          {group.href && <p><a href={group.href}>View related case study</a></p>}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="recent-heading">
+    <p class="section-kicker">Recent experience</p>
+    <h2 id="recent-heading">Salesforce</h2>
+    <div class="stack-list">
+      {recentExperience.map((role) => (
+        <article class="experience-entry" id={role.id}>
+          <h3>{role.title}</h3>
+          {'functionalAssignment' in role && role.functionalAssignment && <p class="card-role">{role.functionalAssignment}</p>}
+          <p>{role.employer} · {role.dateDisplay}</p>
+          <p>{role.summary}</p>
+          <ul>
+            {role.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+          <ul class="tag-list" aria-label={`Skills for ${role.title}`}>
+            {role.skillIds.map((id) => <li>{skillMap.get(id)}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="earlier-heading">
+    <p class="section-kicker">Earlier career</p>
+    <h2 id="earlier-heading">Infrastructure, architecture, and technical operations</h2>
+    <div class="stack-list compact-list">
+      {earlierExperience.map((role) => (
+        <article class="experience-entry" id={role.id}>
+          <h3>{role.title}</h3>
+          <p>{role.employer} · {role.dateDisplay}</p>
+          <p>{role.summary}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Continue</h2>
+    <p>Review <a href="/projects">project evidence</a> or the <a href="/resume">public resume</a>.</p>
+  </section>
+</BaseLayout>
