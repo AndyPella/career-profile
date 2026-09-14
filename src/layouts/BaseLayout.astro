@@ -1,6 +1,7 @@
 ---
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import career from '../data/career.json';
 import '../styles/global.css';
 
 interface Props {
@@ -12,6 +13,59 @@ const {
   title = 'Andrew Pella — Career Profile',
   description = 'Professional profile for Andrew Pella.',
 } = Astro.props;
+
+const rawPath = Astro.url.pathname;
+const canonicalPath = rawPath === '/' ? '/' : rawPath.replace(/\/+$/, '');
+const canonicalUrl = new URL(canonicalPath, Astro.site ?? career.profile.canonicalUrl).toString();
+const sameAs = career.links
+  .filter((link) => ['linkedin', 'github-profile'].includes(link.id))
+  .map((link) => link.url);
+
+const personId = `${career.profile.canonicalUrl}/#person`;
+const person = {
+  '@type': 'Person',
+  '@id': personId,
+  name: career.profile.name,
+  url: career.profile.canonicalUrl,
+  jobTitle: 'Senior Product Manager',
+  description: career.profile.positioning,
+  knowsAbout: career.skills.map((skill) => skill.label),
+  sameAs,
+};
+
+const projectByPath: Record<string, string> = {
+  '/projects/otel-evaluation': 'otel-evaluation',
+  '/projects/agentic-job-search': 'agentic-career-workflow',
+};
+const projectId = projectByPath[canonicalPath];
+const project = projectId ? career.projects.find((item) => item.id === projectId) : undefined;
+const pageId = `${canonicalUrl}#page`;
+const projectEntity = project
+  ? {
+      '@type': 'CreativeWork',
+      '@id': `${canonicalUrl}#project`,
+      name: project.title,
+      description: project.summary,
+      url: canonicalUrl,
+      creator: { '@id': personId },
+      keywords: career.skills
+        .filter((skill) => project.skillIds.includes(skill.id))
+        .map((skill) => skill.label),
+    }
+  : undefined;
+const page = {
+  '@type': canonicalPath === '/' ? 'ProfilePage' : 'WebPage',
+  '@id': pageId,
+  url: canonicalUrl,
+  name: title,
+  description,
+  mainEntity: projectEntity ? { '@id': projectEntity['@id'] } : { '@id': personId },
+  about: projectEntity ? [{ '@id': projectEntity['@id'] }, { '@id': personId }] : { '@id': personId },
+};
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [person, page, ...(projectEntity ? [projectEntity] : [])],
+};
 ---
 
 <!doctype html>
@@ -21,7 +75,18 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Andrew Pella — Career Profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
   </head>
   <body>
