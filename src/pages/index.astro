@@ -3,7 +3,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import career from '../data/career.json';
 
 const { name, workingTitle, positioning, summary, summaryDetail } = career.profile;
-const primarySkills = career.skills.slice(0, 10);
+
+// Keep homepage expertise intentional and independent of array position or numeric limits.
+// New taxonomy entries can be added to career.json without silently displacing existing homepage skills.
+const homepageSkillIds = new Set([
+  'product-management',
+  'product-leadership',
+  'observability',
+  'sre-platforms',
+  'logging',
+  'opentelemetry',
+  'incident-management',
+  'automation',
+  'enterprise-platforms',
+  'enterprise-mobility',
+  'ai-assisted-workflows',
+  'agentic-ai',
+]);
+const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skill.id));
+
 const featuredProjects = career.projects.filter((project) =>
   ['otel-evaluation', 'agentic-career-workflow', 'northstar-ridge'].includes(project.id)
 );
@@ -28,11 +46,11 @@ const github = career.links.find((link) => link.id === 'github-profile');
     <p class="section-kicker">Discovery</p>
     <h2 id="expertise-heading">Areas of expertise</h2>
     <p>
-      Recruiters, hiring managers, search systems, and AI tools can use these approved domains to
-      understand where Andrew's experience is strongest.
+      Core areas of experience span product leadership, observability, SRE platforms, enterprise
+      platforms, automation, and AI-assisted systems.
     </p>
     <ul class="tag-list" aria-label="Areas of expertise">
-      {primarySkills.map((skill) => <li>{skill.label}</li>)}
+      {homepageSkills.map((skill) => <li>{skill.label}</li>)}
     </ul>
   </section>
 
@@ -72,14 +90,17 @@ const github = career.links.find((link) => link.id === 'github-profile');
     <ol>
       <li><strong>Discovery:</strong> identify relevant expertise and product-leadership domains.</li>
       <li><strong>Evidence:</strong> review experience, projects, and the public resume.</li>
-      <li><strong>Contact:</strong> connect through the approved recruiter contact route.</li>
+      <li><strong>Contact:</strong> connect through LinkedIn.</li>
     </ol>
   </section>
 
   <section id="contact" class="section contact-panel" aria-labelledby="contact-heading">
     <p class="section-kicker">Contact</p>
     <h2 id="contact-heading">Connect with Andrew Pella</h2>
-    <p>{career.contact.note}</p>
+    <p>
+      LinkedIn is the primary recruiter contact route. GitHub provides additional public portfolio
+      and project context.
+    </p>
     <div class="hero-actions">
       {linkedin && (
         <a class="button" href={linkedin.url} rel="me">LinkedIn</a>
