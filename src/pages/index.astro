@@ -23,10 +23,11 @@ const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skil
 const featuredProjects = career.projects.filter((project) =>
   ['otel-evaluation', 'agentic-career-workflow', 'northstar-ridge'].includes(project.id)
 );
-const projectRoutes: Record<string, string> = {
+const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
+const projectRoutes: Record<string, string | undefined> = {
   'otel-evaluation': '/projects/otel-evaluation',
   'agentic-career-workflow': '/projects/agentic-job-search',
-  'northstar-ridge': 'https://github.com/AndyPella/ai-portfolio-project',
+  'northstar-ridge': portfolio?.url,
 };
 const linkedin = career.links.find((link) => link.id === 'linkedin');
 const github = career.links.find((link) => link.id === 'github-profile');
@@ -72,14 +73,17 @@ const github = career.links.find((link) => link.id === 'github-profile');
     </p>
 
     <div class="card-grid">
-      {featuredProjects.map((project) => (
-        <article class="card">
-          <h3>{project.title}</h3>
-          <p class="card-role">{project.role}</p>
-          <p>{project.summary}</p>
-          <p><a href={projectRoutes[project.id]}>View evidence</a></p>
-        </article>
-      ))}
+      {featuredProjects.map((project) => {
+        const route = projectRoutes[project.id];
+        return (
+          <article class="card">
+            <h3>{project.title}</h3>
+            <p class="card-role">{project.role}</p>
+            <p>{project.summary}</p>
+            {route && <p><a href={route}>View evidence</a></p>}
+          </article>
+        );
+      })}
     </div>
   </section>
 
@@ -98,7 +102,7 @@ const github = career.links.find((link) => link.id === 'github-profile');
     <p class="section-kicker">Contact</p>
     <h2 id="contact-heading">Connect with Andrew Pella</h2>
     <p>
-      LinkedIn is the primary recruiter contact route. GitHub provides additional public portfolio
+      LinkedIn is the preferred professional contact route. GitHub provides additional public portfolio
       and project context.
     </p>
     <div class="hero-actions">
