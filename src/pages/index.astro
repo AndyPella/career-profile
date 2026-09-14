@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import career from '../data/career.json';
+
+const { name, workingTitle, positioning } = career.profile;
+---
+
+<BaseLayout title={`${name} — ${workingTitle}`} description={positioning}>
+  <section class="hero">
+    <p class="eyebrow">{workingTitle}</p>
+    <h1>{name}</h1>
+    <p>{positioning}</p>
+  </section>
+
+  <section class="machine-note" aria-labelledby="machine-access-heading">
+    <h2 id="machine-access-heading">Human and machine access</h2>
+    <p>
+      Release 1 will provide human-readable pages and machine-readable career resources
+      generated from the same approved public content model.
+    </p>
+  </section>
+</BaseLayout>
