@@ -3,8 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import career from '../data/career.json';
 
 const skillMap = new Map(career.skills.map((skill) => [skill.id, skill.label]));
-const recentExperience = career.experience.slice(0, 3);
-const earlierExperience = career.experience.slice(3);
+const recentExperienceIds = new Set([
+  'salesforce-sre-product',
+  'salesforce-mobile-windows-product',
+  'salesforce-client-engineering',
+]);
+const recentExperience = career.experience.filter((role) => recentExperienceIds.has(role.id));
+const earlierExperience = career.experience.filter((role) => !recentExperienceIds.has(role.id));
 const evidenceGroups = [
   {
     title: 'Product leadership for observability and SRE platforms',
