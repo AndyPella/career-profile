@@ -62,16 +62,14 @@
     "resume": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["headline", "profileId", "experienceIds", "projectIds", "skillIds", "education", "certifications", "assemblyRules"],
+      "required": ["headline", "profileId", "experienceIds", "projectIds", "education", "certifications"],
       "properties": {
         "headline": {"type": "string"},
         "profileId": {"type": "string"},
         "experienceIds": {"type": "array", "items": {"type": "string"}},
         "projectIds": {"type": "array", "items": {"type": "string"}},
-        "skillIds": {"type": "array", "items": {"type": "string"}},
         "education": {"type": "string"},
-        "certifications": {"type": "array", "items": {"type": "string"}},
-        "assemblyRules": {"type": "array", "items": {"type": "string"}}
+        "certifications": {"type": "array", "items": {"type": "string"}}
       }
     }
   },
