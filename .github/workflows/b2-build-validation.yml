@@ -1,4 +1,4 @@
-name: B2 Build Validation
+name: D2 Release Validation
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -24,5 +24,5 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Build Astro site
-        run: npm run build
+      - name: Build and validate Release 1 outputs
+        run: npm run check:release
