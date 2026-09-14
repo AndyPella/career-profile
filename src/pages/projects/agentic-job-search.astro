@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import career from '../../data/career.json';
+
+const project = career.projects.find((item) => item.id === 'agentic-career-workflow');
+if (!project) throw new Error('Approved agentic workflow project data is missing.');
+const skills = career.skills.filter((skill) => project.skillIds.includes(skill.id));
+const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
+---
+
+<BaseLayout title="Agentic Career Workflow — Andrew Pella" description={project.summary}>
+  <section class="page-intro">
+    <p class="eyebrow">Case study</p>
+    <h1>{project.title}</h1>
+    <p class="hero-positioning">{project.summary}</p>
+    <p class="card-role">Role: {project.role}</p>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Problem and context</p>
+    <h2>Turn a multi-stage career workflow into a governed operating model</h2>
+    <p>The project explores progression from GenAI assistance toward a structured workflow in which specialized stages coordinate discovery, evaluation, generation, validation, approval, tracking, and iterative improvement while preserving explicit human decision gates.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Workflow</p>
+    <h2>End-to-end lifecycle</h2>
+    <ol class="step-list">
+      {project.workflow.map((step) => <li>{step}</li>)}
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Agentic properties</p>
+    <h2>Governed orchestration rather than simple prompting</h2>
+    <ul>
+      {project.agenticProperties.map((property) => <li>{property}</li>)}
+    </ul>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Governance</p>
+    <h2>Human approval remains explicit</h2>
+    <p>The public case study intentionally excludes private application records, recruiter communications, private prompts and source files, credentials, tokens, and sensitive implementation details. It also does not claim that Andrew personally coded every agent or automation capability.</p>
+  </section>
+
+  <section class="section">
+    <h2>Related expertise</h2>
+    <ul class="tag-list">
+      {skills.map((skill) => <li>{skill.label}</li>)}
+    </ul>
+    {portfolio && <p><a href={portfolio.url}>View Andrew's public AI portfolio project</a></p>}
+  </section>
+</BaseLayout>

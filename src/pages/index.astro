@@ -4,8 +4,6 @@ import career from '../data/career.json';
 
 const { name, workingTitle, positioning, summary, summaryDetail } = career.profile;
 
-// Keep homepage expertise intentional and independent of array position or numeric limits.
-// New taxonomy entries can be added to career.json without silently displacing existing homepage skills.
 const homepageSkillIds = new Set([
   'product-management',
   'product-leadership',
@@ -25,6 +23,11 @@ const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skil
 const featuredProjects = career.projects.filter((project) =>
   ['otel-evaluation', 'agentic-career-workflow', 'northstar-ridge'].includes(project.id)
 );
+const projectRoutes: Record<string, string> = {
+  'otel-evaluation': '/projects/otel-evaluation',
+  'agentic-career-workflow': '/projects/agentic-job-search',
+  'northstar-ridge': 'https://github.com/AndyPella/ai-portfolio-project',
+};
 const linkedin = career.links.find((link) => link.id === 'linkedin');
 const github = career.links.find((link) => link.id === 'github-profile');
 ---
@@ -37,8 +40,8 @@ const github = career.links.find((link) => link.id === 'github-profile');
     <p class="hero-summary">{summary}</p>
 
     <div class="hero-actions" aria-label="Primary profile actions">
-      <a class="button" href="#evidence">View evidence</a>
-      <a class="button button-secondary" href="#contact">Contact</a>
+      <a class="button" href="/experience">View experience</a>
+      <a class="button button-secondary" href="/contact">Contact</a>
     </div>
   </section>
 
@@ -74,14 +77,10 @@ const github = career.links.find((link) => link.id === 'github-profile');
           <h3>{project.title}</h3>
           <p class="card-role">{project.role}</p>
           <p>{project.summary}</p>
+          <p><a href={projectRoutes[project.id]}>View evidence</a></p>
         </article>
       ))}
     </div>
-
-    <p class="section-note">
-      Detailed Experience, Projects, Resume, and Explore pages will be added as the remaining C1
-      discovery surfaces are implemented.
-    </p>
   </section>
 
   <section class="section discovery-path" aria-labelledby="path-heading">
@@ -89,9 +88,10 @@ const github = career.links.find((link) => link.id === 'github-profile');
     <h2 id="path-heading">Discovery → Evidence → Contact</h2>
     <ol>
       <li><strong>Discovery:</strong> identify relevant expertise and product-leadership domains.</li>
-      <li><strong>Evidence:</strong> review experience, projects, and the public resume.</li>
-      <li><strong>Contact:</strong> connect through LinkedIn.</li>
+      <li><strong>Evidence:</strong> review <a href="/experience">experience</a>, <a href="/projects">projects</a>, and the <a href="/resume">public resume</a>.</li>
+      <li><strong>Contact:</strong> use the <a href="/contact">contact page</a> to connect through LinkedIn.</li>
     </ol>
+    <p><a href="/explore">Explore the complete site map</a></p>
   </section>
 
   <section id="contact" class="section contact-panel" aria-labelledby="contact-heading">
@@ -102,12 +102,8 @@ const github = career.links.find((link) => link.id === 'github-profile');
       and project context.
     </p>
     <div class="hero-actions">
-      {linkedin && (
-        <a class="button" href={linkedin.url} rel="me">LinkedIn</a>
-      )}
-      {github && (
-        <a class="button button-secondary" href={github.url} rel="me">GitHub</a>
-      )}
+      {linkedin && <a class="button" href={linkedin.url} rel="me">LinkedIn</a>}
+      {github && <a class="button button-secondary" href={github.url} rel="me">GitHub</a>}
     </div>
   </section>
 </BaseLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import career from '../data/career.json';
+
+const linkedin = career.links.find((link) => link.id === 'linkedin');
+const github = career.links.find((link) => link.id === 'github-profile');
+---
+
+<BaseLayout title="Explore — Andrew Pella" description="Site roadmap for Andrew Pella's career profile, experience, projects, resume, machine-readable resources, and contact paths.">
+  <section class="page-intro">
+    <p class="eyebrow">Explore</p>
+    <h1>Career profile site map</h1>
+    <p class="hero-positioning">A direct map from profile discovery to career evidence, project detail, resume context, and contact.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Human destinations</p>
+    <h2>Discovery and evidence</h2>
+    <div class="card-grid">
+      <article class="card"><h3><a href="/">Profile</a></h3><p>Positioning, expertise, selected work, and the Discovery → Evidence → Contact path.</p></article>
+      <article class="card"><h3><a href="/experience">Experience</a></h3><p>Career evidence organized for product leadership, observability/SRE, OpenTelemetry, automation/AI, and enterprise platforms.</p></article>
+      <article class="card"><h3><a href="/projects">Projects</a></h3><p>Case studies and public portfolio evidence.</p></article>
+      <article class="card"><h3><a href="/resume">Resume</a></h3><p>Canonical human-readable public resume generated from the shared career model.</p></article>
+      <article class="card"><h3><a href="/contact">Contact</a></h3><p>Approved recruiter contact route and public professional profiles.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Project evidence</p>
+    <h2>Case studies</h2>
+    <ul class="link-list">
+      <li><a href="/projects/otel-evaluation">OpenTelemetry Evaluation</a></li>
+      <li><a href="/projects/agentic-job-search">Agentic Career Workflow</a></li>
+      <li><a href="https://github.com/AndyPella/ai-portfolio-project">Northstar Ridge public repository</a></li>
+    </ul>
+  </section>
+
+  <section class="section machine-resource-note">
+    <p class="section-kicker">Machine access</p>
+    <h2>Structured resources</h2>
+    <p>C2 will add the public machine-readable resume, Markdown, structured profile data, and AI-facing resources. Links will appear here only after those routes exist and pass publication review.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">External profiles</p>
+    <h2>LinkedIn and GitHub</h2>
+    <ul class="link-list">
+      {linkedin && <li><a href={linkedin.url}>LinkedIn</a></li>}
+      {github && <li><a href={github.url}>GitHub</a></li>}
+    </ul>
+  </section>
+</BaseLayout>

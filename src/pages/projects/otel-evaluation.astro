@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import career from '../../data/career.json';
+
+const project = career.projects.find((item) => item.id === 'otel-evaluation');
+if (!project) throw new Error('Approved OpenTelemetry project data is missing.');
+const skills = career.skills.filter((skill) => project.skillIds.includes(skill.id));
+---
+
+<BaseLayout title="OpenTelemetry Evaluation — Andrew Pella" description={project.summary}>
+  <section class="page-intro">
+    <p class="eyebrow">Case study</p>
+    <h1>{project.title}</h1>
+    <p class="hero-positioning">{project.summary}</p>
+    <p class="card-role">Role: {project.role}</p>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Problem and context</p>
+    <h2>Evaluate OpenTelemetry for an enterprise observability environment</h2>
+    <p>The work examined whether OpenTelemetry could satisfy platform requirements across policy, security, transport, storage, development testing, operational overhead, and complexity while progressing safely toward production validation.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Approach</p>
+    <h2>Feasibility through production dual-run</h2>
+    <ol class="step-list">
+      {project.approach.map((item) => <li>{item}</li>)}
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Outcome</p>
+    <h2>Approved results</h2>
+    <ul>
+      {project.outcomes.map((item) => <li>{item}</li>)}
+    </ul>
+    <p class="section-note">This case study does not make a financial-savings claim and does not represent Andrew as the hands-on SRE implementation engineer.</p>
+  </section>
+
+  <section class="section">
+    <h2>Related expertise</h2>
+    <ul class="tag-list">
+      {skills.map((skill) => <li>{skill.label}</li>)}
+    </ul>
+    <p><a href="/experience#salesforce-sre-product">Related Salesforce product leadership experience</a></p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import career from '../../data/career.json';
+
+const routes: Record<string, string> = {
+  'otel-evaluation': '/projects/otel-evaluation',
+  'agentic-career-workflow': '/projects/agentic-job-search',
+  'northstar-ridge': 'https://github.com/AndyPella/ai-portfolio-project',
+};
+---
+
+<BaseLayout title="Projects — Andrew Pella" description="Project evidence across OpenTelemetry, AI-assisted operations, automation, and governed agentic workflows.">
+  <section class="page-intro">
+    <p class="eyebrow">Projects</p>
+    <h1>Evidence through applied work</h1>
+    <p class="hero-positioning">Selected projects connect product leadership claims to concrete evaluation, workflow, governance, and portfolio evidence.</p>
+  </section>
+
+  <section class="section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Project and case-study index</h2>
+    <div class="card-grid">
+      {career.projects.map((project) => (
+        <article class="card">
+          <h3><a href={routes[project.id]}>{project.title}</a></h3>
+          <p class="card-role">{project.role}</p>
+          <p>{project.summary}</p>
+          <p><a href={routes[project.id]}>View project evidence</a></p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

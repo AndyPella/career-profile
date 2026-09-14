@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import career from '../data/career.json';
+
+const linkedin = career.links.find((link) => link.id === 'linkedin');
+const github = career.links.find((link) => link.id === 'github-profile');
+---
+
+<BaseLayout title="Contact — Andrew Pella" description="Recruiter and professional contact routes for Andrew Pella.">
+  <section class="page-intro">
+    <p class="eyebrow">Contact</p>
+    <h1>Connect with Andrew Pella</h1>
+    <p class="hero-positioning">LinkedIn is the primary recruiter contact route. GitHub provides public project and portfolio context.</p>
+  </section>
+
+  <section class="section contact-panel">
+    <h2>Professional profiles</h2>
+    <div class="hero-actions">
+      {linkedin && <a class="button" href={linkedin.url} rel="me">LinkedIn</a>}
+      {github && <a class="button button-secondary" href={github.url} rel="me">GitHub</a>}
+    </div>
+    <p class="section-note">This site does not publish a private phone number, private email address, home address, or other unnecessary personal information.</p>
+  </section>
+</BaseLayout>
