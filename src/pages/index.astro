@@ -2,21 +2,112 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import career from '../data/career.json';
 
-const { name, workingTitle, positioning } = career.profile;
+const { name, workingTitle, positioning, summary, summaryDetail } = career.profile;
+
+// Keep homepage expertise intentional and independent of array position or numeric limits.
+// New taxonomy entries can be added to career.json without silently displacing existing homepage skills.
+const homepageSkillIds = new Set([
+  'product-management',
+  'product-leadership',
+  'observability',
+  'sre-platforms',
+  'logging',
+  'opentelemetry',
+  'incident-management',
+  'automation',
+  'enterprise-platforms',
+  'enterprise-mobility',
+  'ai-assisted-workflows',
+  'agentic-ai',
+]);
+const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skill.id));
+
+const featuredProjects = career.projects.filter((project) =>
+  ['otel-evaluation', 'agentic-career-workflow', 'northstar-ridge'].includes(project.id)
+);
+const linkedin = career.links.find((link) => link.id === 'linkedin');
+const github = career.links.find((link) => link.id === 'github-profile');
 ---
 
 <BaseLayout title={`${name} — ${workingTitle}`} description={positioning}>
-  <section class="hero">
+  <section class="hero" aria-labelledby="profile-heading">
     <p class="eyebrow">{workingTitle}</p>
-    <h1>{name}</h1>
-    <p>{positioning}</p>
+    <h1 id="profile-heading">{name}</h1>
+    <p class="hero-positioning">{positioning}</p>
+    <p class="hero-summary">{summary}</p>
+
+    <div class="hero-actions" aria-label="Primary profile actions">
+      <a class="button" href="#evidence">View evidence</a>
+      <a class="button button-secondary" href="#contact">Contact</a>
+    </div>
   </section>
 
-  <section class="machine-note" aria-labelledby="machine-access-heading">
-    <h2 id="machine-access-heading">Human and machine access</h2>
+  <section id="expertise" class="section" aria-labelledby="expertise-heading">
+    <p class="section-kicker">Discovery</p>
+    <h2 id="expertise-heading">Areas of expertise</h2>
     <p>
-      Release 1 will provide human-readable pages and machine-readable career resources
-      generated from the same approved public content model.
+      Core areas of experience span product leadership, observability, SRE platforms, enterprise
+      platforms, automation, and AI-assisted systems.
     </p>
+    <ul class="tag-list" aria-label="Areas of expertise">
+      {homepageSkills.map((skill) => <li>{skill.label}</li>)}
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="career-heading">
+    <p class="section-kicker">Context</p>
+    <h2 id="career-heading">Product leadership grounded in technical operations</h2>
+    <p>{summaryDetail}</p>
+  </section>
+
+  <section id="evidence" class="section" aria-labelledby="evidence-heading">
+    <p class="section-kicker">Evidence</p>
+    <h2 id="evidence-heading">Selected work</h2>
+    <p>
+      These projects provide concrete evidence across observability, platform product leadership,
+      automation, and AI-assisted workflow design.
+    </p>
+
+    <div class="card-grid">
+      {featuredProjects.map((project) => (
+        <article class="card">
+          <h3>{project.title}</h3>
+          <p class="card-role">{project.role}</p>
+          <p>{project.summary}</p>
+        </article>
+      ))}
+    </div>
+
+    <p class="section-note">
+      Detailed Experience, Projects, Resume, and Explore pages will be added as the remaining C1
+      discovery surfaces are implemented.
+    </p>
+  </section>
+
+  <section class="section discovery-path" aria-labelledby="path-heading">
+    <p class="section-kicker">How to use this site</p>
+    <h2 id="path-heading">Discovery → Evidence → Contact</h2>
+    <ol>
+      <li><strong>Discovery:</strong> identify relevant expertise and product-leadership domains.</li>
+      <li><strong>Evidence:</strong> review experience, projects, and the public resume.</li>
+      <li><strong>Contact:</strong> connect through LinkedIn.</li>
+    </ol>
+  </section>
+
+  <section id="contact" class="section contact-panel" aria-labelledby="contact-heading">
+    <p class="section-kicker">Contact</p>
+    <h2 id="contact-heading">Connect with Andrew Pella</h2>
+    <p>
+      LinkedIn is the primary recruiter contact route. GitHub provides additional public portfolio
+      and project context.
+    </p>
+    <div class="hero-actions">
+      {linkedin && (
+        <a class="button" href={linkedin.url} rel="me">LinkedIn</a>
+      )}
+      {github && (
+        <a class="button button-secondary" href={github.url} rel="me">GitHub</a>
+      )}
+    </div>
   </section>
 </BaseLayout>
