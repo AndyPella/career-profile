@@ -2,10 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import career from '../../data/career.json';
 
-const routes: Record<string, string> = {
+const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
+const routes: Record<string, string | undefined> = {
   'otel-evaluation': '/projects/otel-evaluation',
   'agentic-career-workflow': '/projects/agentic-job-search',
-  'northstar-ridge': 'https://github.com/AndyPella/ai-portfolio-project',
+  'northstar-ridge': portfolio?.url,
 };
 ---
 
@@ -19,14 +20,17 @@ const routes: Record<string, string> = {
   <section class="section" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Project and case-study index</h2>
     <div class="card-grid">
-      {career.projects.map((project) => (
-        <article class="card">
-          <h3><a href={routes[project.id]}>{project.title}</a></h3>
-          <p class="card-role">{project.role}</p>
-          <p>{project.summary}</p>
-          <p><a href={routes[project.id]}>View project evidence</a></p>
-        </article>
-      ))}
+      {career.projects.map((project) => {
+        const route = routes[project.id];
+        return (
+          <article class="card">
+            <h3>{route ? <a href={route}>{project.title}</a> : project.title}</h3>
+            <p class="card-role">{project.role}</p>
+            <p>{project.summary}</p>
+            {route && <p><a href={route}>View project evidence</a></p>}
+          </article>
+        );
+      })}
     </div>
   </section>
 </BaseLayout>
