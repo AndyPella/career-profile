@@ -23,7 +23,7 @@ export const GET: APIRoute = () => {
       name: career.profile.name,
       label: career.resume.headline,
       summary: career.profile.summary,
-      location: { region: 'Oregon', country: 'United States' },
+      location: { region: 'Oregon', countryCode: 'US' },
       url: career.profile.canonicalUrl,
       profiles,
     },
@@ -54,7 +54,7 @@ export const GET: APIRoute = () => {
         url: projectUrl(project),
       })),
     education: [{ summary: career.resume.education }],
-    certifications: career.resume.certifications,
+    certificates: career.resume.certifications,
   };
 
   return new Response(JSON.stringify(resume, null, 2), {
