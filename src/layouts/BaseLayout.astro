@@ -40,34 +40,31 @@ const projectByPath: Record<string, string> = {
 const projectId = projectByPath[canonicalPath];
 const project = projectId ? career.projects.find((item) => item.id === projectId) : undefined;
 const pageId = `${canonicalUrl}#page`;
+const projectEntity = project
+  ? {
+      '@type': 'CreativeWork',
+      '@id': `${canonicalUrl}#project`,
+      name: project.title,
+      description: project.summary,
+      url: canonicalUrl,
+      creator: { '@id': personId },
+      keywords: career.skills
+        .filter((skill) => project.skillIds.includes(skill.id))
+        .map((skill) => skill.label),
+    }
+  : undefined;
 const page = {
   '@type': canonicalPath === '/' ? 'ProfilePage' : 'WebPage',
   '@id': pageId,
   url: canonicalUrl,
   name: title,
   description,
-  mainEntity: { '@id': personId },
-  about: project ? { '@id': `${canonicalUrl}#project` } : { '@id': personId },
+  mainEntity: projectEntity ? { '@id': projectEntity['@id'] } : { '@id': personId },
+  about: projectEntity ? [{ '@id': projectEntity['@id'] }, { '@id': personId }] : { '@id': personId },
 };
 const structuredData = {
   '@context': 'https://schema.org',
-  '@graph': [
-    person,
-    page,
-    ...(project
-      ? [{
-          '@type': 'CreativeWork',
-          '@id': `${canonicalUrl}#project`,
-          name: project.title,
-          description: project.summary,
-          url: canonicalUrl,
-          creator: { '@id': personId },
-          keywords: career.skills
-            .filter((skill) => project.skillIds.includes(skill.id))
-            .map((skill) => skill.label),
-        }]
-      : []),
-  ],
+  '@graph': [person, page, ...(projectEntity ? [projectEntity] : [])],
 };
 ---
 
