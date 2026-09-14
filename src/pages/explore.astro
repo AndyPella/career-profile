@@ -4,6 +4,7 @@ import career from '../data/career.json';
 
 const linkedin = career.links.find((link) => link.id === 'linkedin');
 const github = career.links.find((link) => link.id === 'github-profile');
+const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
 ---
 
 <BaseLayout title="Explore — Andrew Pella" description="Site roadmap for Andrew Pella's career profile, experience, projects, resume, machine-readable resources, and contact paths.">
@@ -21,7 +22,7 @@ const github = career.links.find((link) => link.id === 'github-profile');
       <article class="card"><h3><a href="/experience">Experience</a></h3><p>Career evidence organized for product leadership, observability/SRE, OpenTelemetry, automation/AI, and enterprise platforms.</p></article>
       <article class="card"><h3><a href="/projects">Projects</a></h3><p>Case studies and public portfolio evidence.</p></article>
       <article class="card"><h3><a href="/resume">Resume</a></h3><p>Canonical human-readable public resume generated from the shared career model.</p></article>
-      <article class="card"><h3><a href="/contact">Contact</a></h3><p>Approved recruiter contact route and public professional profiles.</p></article>
+      <article class="card"><h3><a href="/contact">Contact</a></h3><p>Preferred professional contact route and public profiles.</p></article>
     </div>
   </section>
 
@@ -31,14 +32,14 @@ const github = career.links.find((link) => link.id === 'github-profile');
     <ul class="link-list">
       <li><a href="/projects/otel-evaluation">OpenTelemetry Evaluation</a></li>
       <li><a href="/projects/agentic-job-search">Agentic Career Workflow</a></li>
-      <li><a href="https://github.com/AndyPella/ai-portfolio-project">Northstar Ridge public repository</a></li>
+      {portfolio && <li><a href={portfolio.url}>Northstar Ridge public repository</a></li>}
     </ul>
   </section>
 
   <section class="section machine-resource-note">
     <p class="section-kicker">Machine access</p>
     <h2>Structured resources</h2>
-    <p>C2 will add the public machine-readable resume, Markdown, structured profile data, and AI-facing resources. Links will appear here only after those routes exist and pass publication review.</p>
+    <p>Machine-readable resume, Markdown, structured profile data, and AI-facing resources will be linked here as they become available.</p>
   </section>
 
   <section class="section">
