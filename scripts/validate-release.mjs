@@ -172,9 +172,15 @@ if (exists(dist)) {
     const publicText = walk(dist)
       .filter((file) => !/\.(png|jpe?g|gif|webp|ico|woff2?)$/i.test(file))
       .map((file) => [file, read(file)]);
-    const prohibited = ['master-career-record', 'sourceClaimIds', 'SIMON-PUBLIC-001', 'SF-001', 'roleBoundary'];
+    const prohibited = [
+      ['master', '-career-record'].join(''),
+      ['source', 'ClaimIds'].join(''),
+      ['SIMON', '-PUBLIC-001'].join(''),
+      ['SF', '-001'].join(''),
+      ['role', 'Boundary'].join(''),
+    ];
     for (const [file, text] of publicText) {
-      for (const token of prohibited) if (text.includes(token)) fail(`generated output ${path.relative(dist, file)} exposes prohibited private-source marker: ${token}`);
+      for (const token of prohibited) if (text.includes(token)) fail(`generated output ${path.relative(dist, file)} exposes prohibited private-source marker`);
     }
   });
 }
@@ -191,7 +197,7 @@ section('tracked-file obvious secret signature scan', () => {
       ['BEGIN ', 'PRIVATE KEY'].join(''),
     ];
     for (const rel of files) {
-      if (rel === 'scripts/validate-release.mjs') continue;
+      if (rel === 'scripts/validate-release.mjs' || rel === 'scripts/validate-public-source.mjs') continue;
       const file = path.join(root, rel);
       if (!exists(file) || fs.statSync(file).size > 2_000_000) continue;
       let text;
