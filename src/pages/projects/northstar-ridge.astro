@@ -14,6 +14,11 @@ const portfolio = career.links.find((link) => link.id === 'github-public-portfol
     <h1>{project.title}</h1>
     <p class="hero-positioning">{project.summary}</p>
     <p class="card-role">Role: {project.role}</p>
+    {portfolio && (
+      <div class="hero-actions">
+        <a class="button" href={portfolio.url}>View project repository</a>
+      </div>
+    )}
   </section>
 
   <section class="section">
