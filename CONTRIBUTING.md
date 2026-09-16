@@ -2,7 +2,7 @@
 
 ## Authority
 
-`AndyPella/master-career-record` is the private authoritative source for Andrew Pella's career facts. This public repository is downstream and derived.
+An approved private career source-of-truth workflow remains authoritative for Andrew Pella's career facts. This public repository is downstream and derived.
 
 ## Change workflow
 
@@ -38,4 +38,4 @@ The intended stack is Astro -> static output -> GitHub Actions -> GitHub Pages -
 
 ## Career-content changes
 
-Presentation, search language, and machine representation may be adapted for their audience, but the underlying facts must remain consistent with the authoritative private career record. If a proposed change alters a title, date, employer, metric, outcome, skill claim, role boundary, or material professional positioning, reconcile it with the source-of-truth workflow before publication.
+Presentation, search language, and machine representation may be adapted for their audience, but the underlying facts must remain consistent with the authoritative private career record. If a proposed change alters a title, date, employer, metric, outcome, skill claim, role boundary, or material professional positioning, reconcile it with the private source-of-truth workflow before publication.
