@@ -4,24 +4,13 @@
   "title": "Andrew Pella Public Career Model",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "approvedAt", "provenance", "profile", "skills", "experience", "projects", "links", "contact", "resume"],
+  "required": ["schemaVersion", "profile", "skills", "experience", "projects", "links", "contact", "resume"],
   "properties": {
     "schemaVersion": {"type": "string"},
-    "approvedAt": {"type": "string", "format": "date"},
-    "provenance": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["publicContentContract", "authority", "policy"],
-      "properties": {
-        "publicContentContract": {"type": "string"},
-        "authority": {"type": "string"},
-        "policy": {"type": "string"}
-      }
-    },
     "profile": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "name", "workingTitle", "positioning", "location", "canonicalUrl", "summary", "summaryDetail", "roleBoundary"],
+      "required": ["id", "name", "workingTitle", "positioning", "location", "canonicalUrl", "summary", "summaryDetail"],
       "properties": {
         "id": {"type": "string"},
         "name": {"type": "string"},
@@ -30,26 +19,13 @@
         "location": {"type": "string"},
         "canonicalUrl": {"type": "string", "format": "uri"},
         "summary": {"type": "string"},
-        "summaryDetail": {"type": "string"},
-        "roleBoundary": {"type": "string"}
+        "summaryDetail": {"type": "string"}
       }
     },
-    "skills": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/skill"}
-    },
-    "experience": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/experience"}
-    },
-    "projects": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/project"}
-    },
-    "links": {
-      "type": "array",
-      "items": {"$ref": "#/$defs/link"}
-    },
+    "skills": {"type": "array", "items": {"$ref": "#/$defs/skill"}},
+    "experience": {"type": "array", "items": {"$ref": "#/$defs/experience"}},
+    "projects": {"type": "array", "items": {"$ref": "#/$defs/project"}},
+    "links": {"type": "array", "items": {"$ref": "#/$defs/link"}},
     "contact": {
       "type": "object",
       "additionalProperties": false,
@@ -82,14 +58,13 @@
         "id": {"type": "string"},
         "label": {"type": "string"},
         "category": {"type": "string"},
-        "aliases": {"type": "array", "items": {"type": "string"}},
-        "roleBoundary": {"type": "string"}
+        "aliases": {"type": "array", "items": {"type": "string"}}
       }
     },
     "experience": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "employer", "title", "startDate", "endDate", "dateDisplay", "summary", "highlights", "skillIds", "sourceClaimIds"],
+      "required": ["id", "employer", "title", "startDate", "endDate", "dateDisplay", "summary", "highlights", "skillIds"],
       "properties": {
         "id": {"type": "string"},
         "employer": {"type": "string"},
@@ -100,15 +75,13 @@
         "dateDisplay": {"type": "string"},
         "summary": {"type": "string"},
         "highlights": {"type": "array", "items": {"type": "string"}},
-        "boundaries": {"type": "array", "items": {"type": "string"}},
-        "skillIds": {"type": "array", "items": {"type": "string"}},
-        "sourceClaimIds": {"type": "array", "items": {"type": "string"}}
+        "skillIds": {"type": "array", "items": {"type": "string"}}
       }
     },
     "project": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "title", "slug", "summary", "role", "boundaries", "skillIds", "sourceClaimIds"],
+      "required": ["id", "title", "slug", "summary", "role", "skillIds"],
       "properties": {
         "id": {"type": "string"},
         "title": {"type": "string"},
@@ -119,10 +92,8 @@
         "outcomes": {"type": "array", "items": {"type": "string"}},
         "workflow": {"type": "array", "items": {"type": "string"}},
         "agenticProperties": {"type": "array", "items": {"type": "string"}},
-        "boundaries": {"type": "array", "items": {"type": "string"}},
         "links": {"type": "array", "items": {"type": "string"}},
-        "skillIds": {"type": "array", "items": {"type": "string"}},
-        "sourceClaimIds": {"type": "array", "items": {"type": "string"}}
+        "skillIds": {"type": "array", "items": {"type": "string"}}
       }
     },
     "link": {
