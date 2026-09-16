@@ -10,6 +10,7 @@ const lines: string[] = [
   '',
   career.profile.summaryDetail,
   '',
+  `Email: ${career.contact.email}`,
   `Canonical profile: ${career.profile.canonicalUrl}`,
   `Human-readable resume: ${career.profile.canonicalUrl}/resume`,
   '',

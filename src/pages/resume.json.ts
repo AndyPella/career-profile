@@ -22,6 +22,7 @@ export const GET: APIRoute = () => {
     basics: {
       name: career.profile.name,
       label: career.resume.headline,
+      email: career.contact.email,
       summary: career.profile.summary,
       location: { region: 'Oregon', countryCode: 'US' },
       url: career.profile.canonicalUrl,

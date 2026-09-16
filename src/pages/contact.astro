@@ -4,19 +4,21 @@ import career from '../data/career.json';
 
 const linkedin = career.links.find((link) => link.id === 'linkedin');
 const github = career.links.find((link) => link.id === 'github-profile');
+const email = career.contact.email;
 ---
 
 <BaseLayout title="Contact — Andrew Pella" description="Recruiter and professional contact routes for Andrew Pella.">
   <section class="page-intro">
     <p class="eyebrow">Contact</p>
     <h1>Connect with Andrew Pella</h1>
-    <p class="hero-positioning">LinkedIn is the preferred professional contact route. GitHub provides public project and portfolio context.</p>
+    <p class="hero-positioning">Email is the primary direct contact route. LinkedIn is also available for professional contact, and GitHub provides public project and portfolio context.</p>
   </section>
 
   <section class="section contact-panel">
-    <h2>Professional profiles</h2>
+    <h2>Professional contact</h2>
     <div class="hero-actions">
-      {linkedin && <a class="button" href={linkedin.url} rel="me">LinkedIn</a>}
+      <a class="button" href={`mailto:${email}`}>Email Andrew</a>
+      {linkedin && <a class="button button-secondary" href={linkedin.url} rel="me">LinkedIn</a>}
       {github && <a class="button button-secondary" href={github.url} rel="me">GitHub</a>}
     </div>
   </section>
