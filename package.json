@@ -9,8 +9,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "validate:source": "node scripts/validate-public-source.mjs",
     "validate:release": "node scripts/validate-release.mjs",
-    "check:release": "npm run build && npm run validate:release",
+    "check:release": "npm run validate:source && npm run build && npm run validate:release",
     "preview": "astro preview"
   },
   "dependencies": {
