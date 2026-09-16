@@ -29,9 +29,8 @@
     "contact": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["primaryMethod", "email", "note"],
+      "required": ["email", "note"],
       "properties": {
-        "primaryMethod": {"type": "string"},
         "email": {"type": "string", "format": "email"},
         "note": {"type": "string"}
       }
