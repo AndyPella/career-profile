@@ -25,161 +25,20 @@
     {"id":"agentic-ai","label":"Agentic AI","category":"ai"}
   ],
   "experience": [
-    {
-      "id":"salesforce-sre-product",
-      "employer":"Salesforce",
-      "title":"Product Manager Senior Manager",
-      "functionalAssignment":"Product Owner / Product Manager, Site Reliability Engineering",
-      "startDate":"2021-09",
-      "endDate":null,
-      "dateDisplay":"September 2021–Present",
-      "summary":"Product and portfolio leadership for four SRE teams: Logging, Monitoring, Tools Development, and Incident Management.",
-      "highlights":[
-        "Services used by approximately 50,000 internal users.",
-        "Approximately 50 intake requests per week across the four teams.",
-        "Managed four team backlogs and roadmaps plus a combined SRE portfolio roadmap used in quarterly leadership and executive reviews.",
-        "Product ownership for Splunk and Logstash through Logging; New Relic, Grafana, and PagerDuty through Monitoring; Slack/PagerDuty incident workflows; OpenTelemetry collector work; technical-tool development; and SRE portfolio planning.",
-        "Led an OpenTelemetry feasibility and production dual-run initiative covering policy, security, transport, storage, development testing, operational overhead, and complexity.",
-        "Personally designed and built an AI-assisted operational workflow and managed its production implementation across all four SRE teams in early August 2026."
-      ],
-      "skillIds":["product-management","product-leadership","observability","sre-platforms","logging","opentelemetry","incident-management","automation","ai-assisted-workflows"]
-    },
-    {
-      "id":"salesforce-mobile-windows-product",
-      "employer":"Salesforce",
-      "title":"Product Manager Senior Manager",
-      "functionalAssignment":"Product Owner / Product Manager, Enterprise Mobile and Windows Services",
-      "startDate":"2020-03",
-      "endDate":"2021-09",
-      "dateDisplay":"March 2020–September 2021",
-      "summary":"Product direction and delivery for global enterprise mobile-device and Windows services supporting approximately 65,000 users.",
-      "highlights":[
-        "Owned the product workflow for Windows OS patching, OS configuration, and user-access services.",
-        "Managed intake, requirements, prioritization, backlog, roadmap, dependencies, delivery coordination, and status reporting while engineering and operations teams performed technical implementation.",
-        "Coordinated across engineering, security, operations, support, architecture, and partner teams."
-      ],
-      "skillIds":["product-management","product-leadership","enterprise-platforms","enterprise-mobility"]
-    },
-    {
-      "id":"salesforce-client-engineering",
-      "employer":"Salesforce",
-      "title":"Senior Infrastructure Engineer — Client Engineering",
-      "startDate":"2012-10",
-      "endDate":"2020-03",
-      "dateDisplay":"October 2012–March 2020",
-      "summary":"Hands-on technical and architectural responsibility for Salesforce's greenfield AirWatch deployment and later AirWatch-to-Workspace ONE migration.",
-      "highlights":[
-        "Led requirements, architecture, proof of concept, pilot, phased rollout, integration, operations, and lifecycle support for corporate-owned and employee-owned iOS and Android devices.",
-        "Public-safe architecture areas include supporting infrastructure, network access, profiles, compliance, email/calendar, certificates and identity, VPN/Wi-Fi, applications and content, data-protection controls, employee privacy, device visibility, device lock, and remote wipe.",
-        "Completed the Workspace ONE migration across approximately 70,000 managed devices with minimal user disruption and no device re-enrollment."
-      ],
-      "skillIds":["enterprise-platforms","enterprise-mobility"]
-    },
-    {
-      "id":"portland-rescue-mission",
-      "employer":"Portland Rescue Mission",
-      "title":"IT Specialist",
-      "startDate":"2012-06",
-      "endDate":"2012-10",
-      "dateDisplay":"June 2012–October 2012",
-      "summary":"Sole IT specialist responsible for servers, network, telephone systems, workplace technology, and technical support.",
-      "highlights":["Role-based access controls, Office 365/Exchange Online deployment, badging, patching, Active Directory, printing, hardware/software, and user access."],
-      "skillIds":["enterprise-platforms"]
-    },
-    {
-      "id":"hp-technical-consultant",
-      "employer":"HP",
-      "title":"Technical Consultant",
-      "startDate":"2010-09",
-      "endDate":"2012-06",
-      "dateDisplay":"September 2010–June 2012",
-      "summary":"Continued technical architecture, enterprise client-computing, mobile, thin-client, deployment, third-tier support, technical leadership, and executive proof-of-concept responsibilities for the Con-way environment after HP assumed the services.",
-      "highlights":["Public-safe continuity includes handheld systems, vendor-managed AirWatch governance, weigh-in-motion integration, and the national thin-client/TCP-IP environment."],
-      "skillIds":["enterprise-platforms","enterprise-mobility"]
-    },
-    {
-      "id":"conway-senior-systems-analyst",
-      "employer":"Con-way, Inc.",
-      "title":"Senior Systems Analyst",
-      "startDate":"2004-02",
-      "endDate":"2010-09",
-      "dateDisplay":"February 2004–September 2010",
-      "summary":"Technical architecture leadership across enterprise client computing, mobile handhelds, thin clients, device management, and network modernization.",
-      "highlights":[
-        "Designed Group Policy and Citrix controls.",
-        "Led mobile handheld evaluation, proof of concept, pilot, phased rollout, and broad production adoption for freight scanning, dock workflows, status updates, and exception handling.",
-        "Held approval authority for vendor-managed AirWatch configurations, device-management policies, and software deployments and established handheld lifecycle processes.",
-        "Partnered on weigh-in-motion connectivity and handheld configuration for automated freight-weight capture.",
-        "Authored scope and technical requirements for a national thin-client replacement and coordinated deployment with network modernization, including upgrades at more than 60% of locations, added wireless coverage, and transition from legacy serial connectivity to TCP/IP."
-      ],
-      "skillIds":["enterprise-platforms","enterprise-mobility"]
-    },
-    {
-      "id":"conway-systems-analyst",
-      "employer":"Con-way, Inc.",
-      "title":"Systems Analyst",
-      "startDate":"2000-02",
-      "endDate":"2004-01",
-      "dateDisplay":"February 2000–January 2004",
-      "summary":"Created the Distributed Systems Administration team charter and helped establish structured environment and service-management processes.",
-      "highlights":["Helped establish development, testing, preproduction, production, change-control, and service-level processes."],
-      "skillIds":["enterprise-platforms"]
-    },
-    {
-      "id":"entex",
-      "employer":"Entex",
-      "title":"Senior Support Engineer",
-      "startDate":"1995",
-      "endDate":"2000-02",
-      "dateDisplay":"1995–February 2000",
-      "summary":"Windows, Mac, and Microsoft-server break/fix support across Tektronix and later the Con-way environment.",
-      "highlights":["Supported execution of the Banyan VINES-to-Microsoft Exchange migration at Tektronix.","Later worked in the Con-way environment and helped manage Microsoft Exchange servers as part of a team."],
-      "skillIds":["enterprise-platforms"]
-    },
-    {
-      "id":"peci",
-      "employer":"Portland Energy Conservation, Inc.",
-      "title":"IT Support Specialist",
-      "startDate":"1986",
-      "endDate":"1995",
-      "dateDisplay":"1986–1995",
-      "summary":"Sole IT employee supporting desktops, laptops, Mac systems, local network, email, printing, and telephone systems.",
-      "highlights":["Used Excel, Quattro Pro, Paradox, and SAS reporting for energy-program analysis, project tracking, and customer-data management."],
-      "skillIds":["enterprise-platforms"]
-    }
+    {"id":"salesforce-sre-product","employer":"Salesforce","title":"Product Manager Senior Manager","functionalAssignment":"Product Owner / Product Manager, Site Reliability Engineering","startDate":"2021-09","endDate":null,"dateDisplay":"September 2021–Present","summary":"Product and portfolio leadership for four SRE teams: Logging, Monitoring, Tools Development, and Incident Management.","highlights":["Services used by approximately 50,000 internal users.","Approximately 50 intake requests per week across the four teams.","Managed four team backlogs and roadmaps plus a combined SRE portfolio roadmap used in quarterly leadership and executive reviews.","Product ownership for Splunk and Logstash through Logging; New Relic, Grafana, and PagerDuty through Monitoring; Slack/PagerDuty incident workflows; OpenTelemetry collector work; technical-tool development; and SRE portfolio planning.","Led an OpenTelemetry feasibility and production dual-run initiative covering policy, security, transport, storage, development testing, operational overhead, and complexity.","Personally designed and built an AI-assisted operational workflow and managed its production implementation across all four SRE teams in early August 2026."],"skillIds":["product-management","product-leadership","observability","sre-platforms","logging","opentelemetry","incident-management","automation","ai-assisted-workflows"]},
+    {"id":"salesforce-mobile-windows-product","employer":"Salesforce","title":"Product Manager Senior Manager","functionalAssignment":"Product Owner / Product Manager, Enterprise Mobile and Windows Services","startDate":"2020-03","endDate":"2021-09","dateDisplay":"March 2020–September 2021","summary":"Product direction and delivery for global enterprise mobile-device and Windows services supporting approximately 65,000 users.","highlights":["Owned the product workflow for Windows OS patching, OS configuration, and user-access services.","Managed intake, requirements, prioritization, backlog, roadmap, dependencies, delivery coordination, and status reporting while engineering and operations teams performed technical implementation.","Coordinated across engineering, security, operations, support, architecture, and partner teams."],"skillIds":["product-management","product-leadership","enterprise-platforms","enterprise-mobility"]},
+    {"id":"salesforce-client-engineering","employer":"Salesforce","title":"Senior Infrastructure Engineer — Client Engineering","startDate":"2012-10","endDate":"2020-03","dateDisplay":"October 2012–March 2020","summary":"Hands-on technical and architectural responsibility for Salesforce's greenfield AirWatch deployment and later AirWatch-to-Workspace ONE migration.","highlights":["Led requirements, architecture, proof of concept, pilot, phased rollout, integration, operations, and lifecycle support for corporate-owned and employee-owned iOS and Android devices.","Public-safe architecture areas include supporting infrastructure, network access, profiles, compliance, email/calendar, certificates and identity, VPN/Wi-Fi, applications and content, data-protection controls, employee privacy, device visibility, device lock, and remote wipe.","Completed the Workspace ONE migration across approximately 70,000 managed devices with minimal user disruption and no device re-enrollment."],"skillIds":["enterprise-platforms","enterprise-mobility"]},
+    {"id":"portland-rescue-mission","employer":"Portland Rescue Mission","title":"IT Specialist","startDate":"2012-06","endDate":"2012-10","dateDisplay":"June 2012–October 2012","summary":"Sole IT specialist responsible for servers, network, telephone systems, workplace technology, and technical support.","highlights":["Role-based access controls, Office 365/Exchange Online deployment, badging, patching, Active Directory, printing, hardware/software, and user access."],"skillIds":["enterprise-platforms"]},
+    {"id":"hp-technical-consultant","employer":"HP","title":"Technical Consultant","startDate":"2010-09","endDate":"2012-06","dateDisplay":"September 2010–June 2012","summary":"Continued technical architecture, enterprise client-computing, mobile, thin-client, deployment, third-tier support, technical leadership, and executive proof-of-concept responsibilities for the Con-way environment after HP assumed the services.","highlights":["Public-safe continuity includes handheld systems, vendor-managed AirWatch governance, weigh-in-motion integration, and the national thin-client/TCP-IP environment."],"skillIds":["enterprise-platforms","enterprise-mobility"]},
+    {"id":"conway-senior-systems-analyst","employer":"Con-way, Inc.","title":"Senior Systems Analyst","startDate":"2004-02","endDate":"2010-09","dateDisplay":"February 2004–September 2010","summary":"Technical architecture leadership across enterprise client computing, mobile handhelds, thin clients, device management, and network modernization.","highlights":["Designed Group Policy and Citrix controls.","Led mobile handheld evaluation, proof of concept, pilot, phased rollout, and broad production adoption for freight scanning, dock workflows, status updates, and exception handling.","Held approval authority for vendor-managed AirWatch configurations, device-management policies, and software deployments and established handheld lifecycle processes.","Partnered on weigh-in-motion connectivity and handheld configuration for automated freight-weight capture.","Authored scope and technical requirements for a national thin-client replacement and coordinated deployment with network modernization, including upgrades at more than 60% of locations, added wireless coverage, and transition from legacy serial connectivity to TCP/IP."],"skillIds":["enterprise-platforms","enterprise-mobility"]},
+    {"id":"conway-systems-analyst","employer":"Con-way, Inc.","title":"Systems Analyst","startDate":"2000-02","endDate":"2004-01","dateDisplay":"February 2000–January 2004","summary":"Created the Distributed Systems Administration team charter and helped establish structured environment and service-management processes.","highlights":["Helped establish development, testing, preproduction, production, change-control, and service-level processes."],"skillIds":["enterprise-platforms"]},
+    {"id":"entex","employer":"Entex","title":"Senior Support Engineer","startDate":"1995","endDate":"2000-02","dateDisplay":"1995–February 2000","summary":"Windows, Mac, and Microsoft-server break/fix support across Tektronix and later the Con-way environment.","highlights":["Supported execution of the Banyan VINES-to-Microsoft Exchange migration at Tektronix.","Later worked in the Con-way environment and helped manage Microsoft Exchange servers as part of a team."],"skillIds":["enterprise-platforms"]},
+    {"id":"peci","employer":"Portland Energy Conservation, Inc.","title":"IT Support Specialist","startDate":"1986","endDate":"1995","dateDisplay":"1986–1995","summary":"Sole IT employee supporting desktops, laptops, Mac systems, local network, email, printing, and telephone systems.","highlights":["Used Excel, Quattro Pro, Paradox, and SAS reporting for energy-program analysis, project tracking, and customer-data management."],"skillIds":["enterprise-platforms"]}
   ],
   "projects": [
-    {
-      "id":"otel-evaluation",
-      "title":"OpenTelemetry Evaluation",
-      "slug":"otel-evaluation",
-      "summary":"Product Owner/Product Manager-led feasibility and production dual-run initiative evaluating OpenTelemetry across policy, security, transport, storage, development testing, operational overhead, and complexity.",
-      "role":"Product Owner / Product Manager",
-      "approach":["Validated policy and security requirements.","Evaluated transport and storage considerations.","Progressed from development testing to a production dual-run.","Assessed operational overhead and complexity."],
-      "outcomes":["Security requirements were addressed.","The work identified opportunities to reduce operational overhead and complexity."],
-      "skillIds":["product-management","observability","sre-platforms","opentelemetry"]
-    },
-    {
-      "id":"northstar-ridge",
-      "title":"Northstar Ridge",
-      "slug":"northstar-ridge",
-      "summary":"Public AI-assisted operations product case study designed and built by Andrew Pella beginning in August 2026.",
-      "role":"Product designer and builder",
-      "approach":["Version 1 models Customer Service, Mechanic, and Manager workflows.","Version 2 is planned to add a direct Customer role and customer-facing workflow."],
-      "outcomes":["Provides public portfolio evidence of AI-assisted workflow and product design."],
-      "links":["github-public-portfolio"],
-      "skillIds":["product-management","automation","ai-assisted-workflows"]
-    },
-    {
-      "id":"agentic-career-workflow",
-      "title":"Agentic Career Workflow",
-      "slug":"agentic-career-workflow",
-      "summary":"Public case study demonstrating progression from GenAI assistance to structured AI workflows and a governed agentic operating model.",
-      "role":"Product owner, workflow designer, tester, and decision-maker",
-      "workflow":["Discover","Qualify / Evaluate","Human Decision","Generate","Validate","Approve","Track","Learn / Improve"],
-      "agenticProperties":["Persistent workflow state across stages.","Specialized functional stages.","Generalized tool use and orchestration.","Conditional routing based on workflow state and validation results.","Explicit human decision and approval gates.","Validation before downstream actions.","Traceability and governed change control.","Exception handling and recovery paths.","Iterative improvement informed by results and observed failure modes."],
-      "skillIds":["product-management","automation","ai-assisted-workflows","agentic-ai"]
-    }
+    {"id":"otel-evaluation","title":"OpenTelemetry Evaluation","slug":"otel-evaluation","summary":"Product Owner/Product Manager-led feasibility and production dual-run initiative evaluating OpenTelemetry across policy, security, transport, storage, development testing, operational overhead, and complexity.","role":"Product Owner / Product Manager","approach":["Validated policy and security requirements.","Evaluated transport and storage considerations.","Progressed from development testing to a production dual-run.","Assessed operational overhead and complexity."],"outcomes":["Security requirements were addressed.","The work identified opportunities to reduce operational overhead and complexity."],"skillIds":["product-management","observability","sre-platforms","opentelemetry"]},
+    {"id":"northstar-ridge","title":"Northstar Ridge","slug":"northstar-ridge","summary":"Public AI-assisted operations product case study designed and built by Andrew Pella beginning in August 2026.","role":"Product designer and builder","approach":["Version 1 models Customer Service, Mechanic, and Manager workflows.","Version 2 is planned to add a direct Customer role and customer-facing workflow."],"outcomes":["Provides public portfolio evidence of AI-assisted workflow and product design."],"links":["github-public-portfolio"],"skillIds":["product-management","automation","ai-assisted-workflows"]},
+    {"id":"agentic-career-workflow","title":"Agentic Career Workflow","slug":"agentic-career-workflow","summary":"Public case study demonstrating progression from GenAI assistance to structured AI workflows and a governed agentic operating model.","role":"Product owner, workflow designer, tester, and decision-maker","workflow":["Discover","Qualify / Evaluate","Human Decision","Generate","Validate","Approve","Track","Learn / Improve"],"agenticProperties":["Persistent workflow state across stages.","Specialized functional stages.","Generalized tool use and orchestration.","Conditional routing based on workflow state and validation results.","Explicit human decision and approval gates.","Validation before downstream actions.","Traceability and governed change control.","Exception handling and recovery paths.","Iterative improvement informed by results and observed failure modes."],"skillIds":["product-management","automation","ai-assisted-workflows","agentic-ai"]}
   ],
   "links": [
     {"id":"linkedin","label":"LinkedIn","type":"professional-profile","url":"https://www.linkedin.com/in/andrewpella"},
@@ -188,9 +47,8 @@
     {"id":"canonical-site","label":"Andrew Pella","type":"canonical-site","url":"https://andrewpella.com"}
   ],
   "contact": {
-    "primaryMethod":"email",
     "email":"a.pella@gmail.com",
-    "note":"Email is the primary public contact channel; LinkedIn is also available for professional contact."
+    "note":"Email and LinkedIn are available professional contact routes."
   },
   "resume": {
     "headline":"Senior Product Manager | Observability & SRE Platforms | Enterprise Platforms | Automation & AI",
