@@ -2,125 +2,81 @@
 
 ## Purpose
 
-B1 defines the single structured public data model that feeds the human site, machine-readable resources, metadata, and canonical public resume outputs for `andrewpella.com`.
+The public model defines the structured data used to build the human site, machine-readable resources, metadata, and canonical public resume outputs for `andrewpella.com`.
 
-The public model is downstream from the approved private career source-of-truth workflow. It is intentionally public-safe and must not become an independent factual authority.
+Only information intended for public disclosure belongs in this repository. Upstream approval and evidence-management details remain outside this public project.
 
-## Representation decision
+## Representation
 
-Release 1 uses JSON in `src/data/career.json` as the shared public model because it is:
+Release 1 uses JSON in `src/data/career.json` because it is directly consumable by Astro, easy to transform into HTML and machine-readable formats, easy to validate, and readable by both people and software.
 
-- directly consumable by Astro at build time,
-- easy to transform into HTML, Markdown, JSON-LD, `llms.txt`, and resume formats,
-- easy to validate with JSON Schema,
-- readable by humans and machines,
-- independent of a client-side framework.
-
-`src/data/career.schema.json` defines the initial validation contract.
+`src/data/career.schema.json` defines the public validation contract.
 
 ## Object model
 
 The Release 1 model contains:
 
-- `profile` — canonical identity, public positioning, summary, and role-boundary guidance.
-- `skills[]` — public semantic taxonomy with stable IDs and optional aliases/boundaries.
-- `experience[]` — employer/role records, approved highlights, boundaries, skill relationships, and safe source-claim IDs.
-- `projects[]` — approved public evidence/case studies, including the sanitized Agentic Career Workflow.
+- `profile` — canonical identity, positioning, location, and summary.
+- `skills[]` — public semantic taxonomy with stable IDs and optional aliases.
+- `experience[]` — employer and role records, approved highlights, and skill relationships.
+- `projects[]` — public project and case-study evidence.
 - `links[]` — canonical public external links.
-- `contact` — approved recruiter-contact route only.
-- `resume` — the single canonical public resume definition and ordered references to approved experience/project records.
-- `provenance` — approval-level traceability without exposing private evidence or private repository content.
+- `contact` — the approved public contact route.
+- `resume` — the canonical public resume definition and ordered references to approved experience and project records.
+
+Internal traceability, approval workflow details, and authoring instructions are intentionally excluded.
 
 ## Stable IDs and references
 
-Objects use stable IDs. Downstream outputs should reference these IDs rather than copying and independently maintaining facts.
+Public objects use stable IDs so downstream outputs can reference shared records instead of copying facts into multiple independent sources.
 
-Examples:
+Examples include:
 
 - `salesforce-sre-product`
 - `sre-platforms`
 - `otel-evaluation`
 - `agentic-career-workflow`
 
-The `resume` object stores the fixed canonical public resume headline and ordered experience/project references instead of a second copy of career history.
+## Role positioning
 
-## SRE role-positioning rule
+Public content preserves the distinction between product or platform leadership and hands-on engineering. Andrew's Salesforce SRE assignment is presented as Product Owner/Product Manager and platform leadership. Earlier Client Engineering work represents hands-on engineering experience.
 
-The data model encodes the approved distinction between domain/product leadership and hands-on engineering.
+That distinction is established before information enters this public model rather than through embedded authoring instructions.
 
-Andrew's Salesforce SRE experience is represented as Product Owner/Product Manager, product, platform, portfolio, and domain leadership. The use of `Site Reliability Engineering` as the functional assignment name or an alias for `SRE Platforms` must not be transformed into an unsupported claim of hands-on SRE engineering, production configuration, or tool administration.
+## Canonical public resume
 
-Direct hands-on engineering remains attached to separately approved experience such as Client Engineering and other explicitly verified work.
+The website exposes one canonical static public resume.
 
-Downstream generators must preserve this distinction.
-
-## Canonical public resume strategy
-
-The website exposes one canonical static public resume. B1 does not define targeted, condensed, role-specific, or visitor-specific resume variants.
-
-The boundary is:
-
-1. `src/data/career.json` remains the shared public authoring model.
-2. The `resume` object defines the fixed canonical public resume presentation: headline, profile, ordered experience, ordered projects, education, and certifications.
-3. `/resume`, `/resume.md`, and the JSON Resume-compatible `/resume.json` are format-specific representations of that same canonical public resume.
-4. `resume.json` is a downstream adapter and is not an independent factual authority.
-5. Skills used by the public resume come from the shared `skills[]` taxonomy and the relationships already present on experience/project records; the resume object does not maintain a separate skill-selection list.
-6. Job-specific resume and cover-letter permutations remain the responsibility of Simon and the private `master-career-record` workflow. They are not generated by the public site's B1 model.
-7. Any factual change must enter through the approved source workflow and then update this model; downstream public outputs must not be edited as competing sources of truth.
+1. `src/data/career.json` is the shared public model.
+2. The `resume` object defines the fixed public resume presentation.
+3. `/resume`, `/resume.md`, and `/resume.json` are format-specific representations of the same public resume.
+4. Job-specific application materials remain outside this public repository.
+5. Material factual changes must be approved upstream before the public model changes.
 
 Canonical public resume headline:
 
 `Senior Product Manager | Observability & SRE Platforms | Enterprise Platforms | Automation & AI`
 
-## Provenance
+## Public disclosure rules
 
-Public records may contain safe claim identifiers such as `SF-010` or `SIMON-PUBLIC-001`. These identifiers provide traceability to the approved source workflow without exposing evidence files, private repository locations, internal URLs, or confidential source material.
-
-The public model does not contain private evidence notes or private-only claims.
-
-## Privacy and disclosure
-
-The model intentionally excludes:
-
-- private phone number and personal email,
-- home address and private identifiers,
-- compensation or financial data,
-- private repository URLs and contents,
-- application records and recruiter communications,
-- internal employer URLs,
-- credentials, tokens, keys, or secrets,
-- confidential architecture details,
-- private Simon implementation details.
-
-The generalized `Agentic Career Workflow` project is the only public representation authorized from that private workflow and must continue to follow its explicit boundaries.
+The model excludes information that is not needed for public professional discovery, including nonpublic contact details, financial information, internal employer locations, nonpublic repository information, application records, credentials, and internal workflow implementation details.
 
 ## Validation
 
-B1 adds a JSON Schema describing required objects and field types. Automated schema execution belongs to the later D2 validation-gate work; B1 establishes the schema now so Astro integration and downstream generators have a stable contract.
-
-Later validation should also verify referential integrity—for example, every `projectId`, `experienceId`, `skillId`, and `link` reference must point to an existing object.
+Release validation checks both generated site output and tracked repository source. The source check prevents internal workflow or traceability metadata from remaining visible in the public Git repository even when it is not rendered on the website.
 
 ## Downstream mapping
 
 | Public model | Human / machine consumers |
 | --- | --- |
-| `profile` | Home, About/Profile content, JSON-LD, `llms.txt`, resume header |
-| `experience[]` | Experience page, canonical public resume, JSON Resume adapter, JSON-LD |
-| `skills[]` | Home/Experience taxonomy, search metadata, JSON-LD, canonical public resume |
-| `projects[]` | Projects pages, evidence links, `llms.txt`, canonical public resume, JSON-LD |
-| `links[]` | Navigation, contact, `sameAs`, machine outputs |
+| `profile` | Home, JSON-LD, `llms.txt`, resume header |
+| `experience[]` | Experience page, public resume, JSON Resume adapter |
+| `skills[]` | Experience taxonomy, metadata, public resume |
+| `projects[]` | Project pages, `llms.txt`, public resume |
+| `links[]` | Contact, identity links, machine outputs |
 | `contact` | Contact surface and recruiter CTA |
-| `resume` | Fixed `/resume`, `/resume.md`, and `/resume.json` representations |
+| `resume` | `/resume`, `/resume.md`, and `/resume.json` |
 
-## B1 acceptance
+## Acceptance
 
-B1 is complete when:
-
-- one structured public model can feed all human and machine outputs,
-- the Release 1 A2-approved content is represented,
-- role and privacy boundaries are encoded with the content,
-- the schema contract exists,
-- the public resume is explicitly one canonical static presentation,
-- Simon remains responsible for job-specific resume and cover-letter permutations,
-- `resume.json` is explicitly downstream/adapted rather than authoritative,
-- no output format is treated as an independent factual authority.
+The model is acceptable when one structured public data source feeds all human and machine outputs, only intended public information is present, the schema matches the model, and automated validation rejects internal workflow or traceability metadata from tracked public source.
