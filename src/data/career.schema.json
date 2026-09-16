@@ -7,18 +7,106 @@
   "required": ["schemaVersion", "profile", "skills", "experience", "projects", "links", "contact", "resume"],
   "properties": {
     "schemaVersion": {"type": "string"},
-    "profile": {"type":"object","additionalProperties":false,"required":["id","name","workingTitle","positioning","location","canonicalUrl","summary","summaryDetail"],"properties":{"id":{"type":"string"},"name":{"type":"string"},"workingTitle":{"type":"string"},"positioning":{"type":"string"},"location":{"type":"string"},"canonicalUrl":{"type":"string","format":"uri"},"summary":{"type":"string"},"summaryDetail":{"type":"string"}}},
-    "skills": {"type":"array","items":{"$ref":"#/$defs/skill"}},
-    "experience": {"type":"array","items":{"$ref":"#/$defs/experience"}},
-    "projects": {"type":"array","items":{"$ref":"#/$defs/project"}},
-    "links": {"type":"array","items":{"$ref":"#/$defs/link"}},
-    "contact": {"type":"object","additionalProperties":false,"required":["primaryMethod","email","note"],"properties":{"primaryMethod":{"type":"string"},"email":{"type":"string","format":"email"},"note":{"type":"string"}}},
-    "resume": {"type":"object","additionalProperties":false,"required":["headline","profileId","experienceIds","projectIds","education","certifications"],"properties":{"headline":{"type":"string"},"profileId":{"type":"string"},"experienceIds":{"type":"array","items":{"type":"string"}},"projectIds":{"type":"array","items":{"type":"string"}},"education":{"type":"string"},"certifications":{"type":"array","items":{"type":"string"}}}}
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "workingTitle", "positioning", "location", "canonicalUrl", "summary", "summaryDetail"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "workingTitle": {"type": "string"},
+        "positioning": {"type": "string"},
+        "location": {"type": "string"},
+        "canonicalUrl": {"type": "string", "format": "uri"},
+        "summary": {"type": "string"},
+        "summaryDetail": {"type": "string"}
+      }
+    },
+    "skills": {"type": "array", "items": {"$ref": "#/$defs/skill"}},
+    "experience": {"type": "array", "items": {"$ref": "#/$defs/experience"}},
+    "projects": {"type": "array", "items": {"$ref": "#/$defs/project"}},
+    "links": {"type": "array", "items": {"$ref": "#/$defs/link"}},
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primaryMethod", "email", "note"],
+      "properties": {
+        "primaryMethod": {"type": "string"},
+        "email": {"type": "string", "format": "email"},
+        "note": {"type": "string"}
+      }
+    },
+    "resume": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["headline", "profileId", "experienceIds", "projectIds", "education", "certifications"],
+      "properties": {
+        "headline": {"type": "string"},
+        "profileId": {"type": "string"},
+        "experienceIds": {"type": "array", "items": {"type": "string"}},
+        "projectIds": {"type": "array", "items": {"type": "string"}},
+        "education": {"type": "string"},
+        "certifications": {"type": "array", "items": {"type": "string"}}
+      }
+    }
   },
   "$defs": {
-    "skill":{"type":"object","additionalProperties":false,"required":["id","label","category"],"properties":{"id":{"type":"string"},"label":{"type":"string"},"category":{"type":"string"},"aliases":{"type":"array","items":{"type":"string"}}}},
-    "experience":{"type":"object","additionalProperties":false,"required":["id","employer","title","startDate","endDate","dateDisplay","summary","highlights","skillIds"],"properties":{"id":{"type":"string"},"employer":{"type":"string"},"title":{"type":"string"},"functionalAssignment":{"type":"string"},"startDate":{"type":"string"},"endDate":{"type":["string","null"]},"dateDisplay":{"type":"string"},"summary":{"type":"string"},"highlights":{"type":"array","items":{"type":"string"}},"skillIds":{"type":"array","items":{"type":"string"}}}},
-    "project":{"type":"object","additionalProperties":false,"required":["id","title","slug","summary","role","skillIds"],"properties":{"id":{"type":"string"},"title":{"type":"string"},"slug":{"type":"string"},"summary":{"type":"string"},"role":{"type":"string"},"approach":{"type":"array","items":{"type":"string"}},"outcomes":{"type":"array","items":{"type":"string"}},"workflow":{"type":"array","items":{"type":"string"}},"agenticProperties":{"type":"array","items":{"type":"string"}},"links":{"type":"array","items":{"type":"string"}},"skillIds":{"type":"array","items":{"type":"string"}}}},
-    "link":{"type":"object","additionalProperties":false,"required":["id","label","type","url"],"properties":{"id":{"type":"string"},"label":{"type":"string"},"type":{"type":"string"},"url":{"type":"string","format":"uri"}}}
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "category"],
+      "properties": {
+        "id": {"type": "string"},
+        "label": {"type": "string"},
+        "category": {"type": "string"},
+        "aliases": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "employer", "title", "startDate", "endDate", "dateDisplay", "summary", "highlights", "skillIds"],
+      "properties": {
+        "id": {"type": "string"},
+        "employer": {"type": "string"},
+        "title": {"type": "string"},
+        "functionalAssignment": {"type": "string"},
+        "startDate": {"type": "string"},
+        "endDate": {"type": ["string", "null"]},
+        "dateDisplay": {"type": "string"},
+        "summary": {"type": "string"},
+        "highlights": {"type": "array", "items": {"type": "string"}},
+        "skillIds": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "slug", "summary", "role", "skillIds"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string"},
+        "slug": {"type": "string"},
+        "summary": {"type": "string"},
+        "role": {"type": "string"},
+        "approach": {"type": "array", "items": {"type": "string"}},
+        "outcomes": {"type": "array", "items": {"type": "string"}},
+        "workflow": {"type": "array", "items": {"type": "string"}},
+        "agenticProperties": {"type": "array", "items": {"type": "string"}},
+        "links": {"type": "array", "items": {"type": "string"}},
+        "skillIds": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "type", "url"],
+      "properties": {
+        "id": {"type": "string"},
+        "label": {"type": "string"},
+        "type": {"type": "string"},
+        "url": {"type": "string", "format": "uri"}
+      }
+    }
   }
 }
