@@ -23,11 +23,10 @@ const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skil
 const featuredProjects = career.projects.filter((project) =>
   ['otel-evaluation', 'agentic-career-workflow', 'northstar-ridge'].includes(project.id)
 );
-const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
 const projectRoutes: Record<string, string | undefined> = {
   'otel-evaluation': '/projects/otel-evaluation',
   'agentic-career-workflow': '/projects/agentic-job-search',
-  'northstar-ridge': portfolio?.url,
+  'northstar-ridge': '/projects/northstar-ridge',
 };
 const linkedin = career.links.find((link) => link.id === 'linkedin');
 const github = career.links.find((link) => link.id === 'github-profile');
