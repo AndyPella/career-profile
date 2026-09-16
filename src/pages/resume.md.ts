@@ -3,18 +3,10 @@ import career from '../data/career.json';
 
 const lines: string[] = [
   `# ${career.profile.name}`,
-  '',
-  career.resume.headline,
-  '',
-  career.profile.summary,
-  '',
-  career.profile.summaryDetail,
-  '',
+  '', career.resume.headline, '', career.profile.summary, '', career.profile.summaryDetail, '',
+  `Email: ${career.contact.email}`,
   `Canonical profile: ${career.profile.canonicalUrl}`,
-  `Human-readable resume: ${career.profile.canonicalUrl}/resume`,
-  '',
-  '## Experience',
-  '',
+  `Human-readable resume: ${career.profile.canonicalUrl}/resume`, '', '## Experience', '',
 ];
 
 for (const id of career.resume.experienceIds) {
@@ -33,19 +25,9 @@ for (const id of career.resume.projectIds) {
   if (!project) continue;
   lines.push(`### ${project.title}`, '', `**Role:** ${project.role}`, '', project.summary, '');
 }
-
 lines.push('## Expertise', '');
 for (const skill of career.skills) lines.push(`- ${skill.label}`);
-
 lines.push('', '## Education', '', career.resume.education, '', '## Professional Links', '');
-for (const link of career.links.filter((item) => ['linkedin', 'github-profile', 'github-public-portfolio'].includes(item.id))) {
-  lines.push(`- ${link.label}: ${link.url}`);
-}
+for (const link of career.links.filter((item) => ['linkedin', 'github-profile', 'github-public-portfolio'].includes(item.id))) lines.push(`- ${link.label}: ${link.url}`);
 
-export const GET: APIRoute = () =>
-  new Response(`${lines.join('\n')}\n`, {
-    headers: {
-      'Content-Type': 'text/markdown; charset=utf-8',
-      'Cache-Control': 'public, max-age=3600',
-    },
-  });
+export const GET: APIRoute = () => new Response(`${lines.join('\n')}\n`, { headers: { 'Content-Type': 'text/markdown; charset=utf-8', 'Cache-Control': 'public, max-age=3600' } });
