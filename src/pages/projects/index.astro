@@ -2,11 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import career from '../../data/career.json';
 
-const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
 const routes: Record<string, string | undefined> = {
   'otel-evaluation': '/projects/otel-evaluation',
   'agentic-career-workflow': '/projects/agentic-job-search',
-  'northstar-ridge': portfolio?.url,
+  'northstar-ridge': '/projects/northstar-ridge',
 };
 ---
 
