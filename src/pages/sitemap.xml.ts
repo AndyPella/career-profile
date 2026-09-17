@@ -6,6 +6,7 @@ const paths = [
   '/experience',
   '/projects',
   '/projects/otel-evaluation',
+  '/projects/northstar-ridge',
   '/projects/agentic-job-search',
   '/resume',
   '/explore',

@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const site = 'https://andrewpella.com';
-const requiredPages = ['/', '/experience', '/projects', '/projects/otel-evaluation', '/projects/agentic-job-search', '/resume', '/explore', '/contact'];
+const requiredPages = ['/', '/experience', '/projects', '/projects/otel-evaluation', '/projects/northstar-ridge', '/projects/agentic-job-search', '/resume', '/explore', '/contact'];
 const requiredMachineFiles = ['/resume.json', '/resume.md', '/llms.txt', '/sitemap.xml', '/robots.txt'];
 const failures = [];
 const pass = (message) => console.log(`PASS: ${message}`);
@@ -116,7 +116,7 @@ if (exists(dist)) {
   });
 
   section('JSON-LD emitted and parseable on intended pages', () => {
-    const jsonLdPages = ['/', '/projects/otel-evaluation', '/projects/agentic-job-search'];
+    const jsonLdPages = ['/', '/projects/otel-evaluation', '/projects/northstar-ridge', '/projects/agentic-job-search'];
     for (const urlPath of jsonLdPages) {
       const html = read(outputPath(urlPath));
       const match = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
