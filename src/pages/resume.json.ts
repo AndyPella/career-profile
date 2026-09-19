@@ -7,9 +7,9 @@ const profiles = career.links
 
 const projectUrl = (project: (typeof career.projects)[number]) => {
   if (project.id === 'otel-evaluation') return `${career.profile.canonicalUrl}/projects/otel-evaluation`;
+  if (project.id === 'northstar-ridge') return `${career.profile.canonicalUrl}/projects/northstar-ridge`;
   if (project.id === 'agentic-career-workflow') return `${career.profile.canonicalUrl}/projects/agentic-job-search`;
-  const linkId = 'links' in project ? project.links?.[0] : undefined;
-  return linkId ? career.links.find((link) => link.id === linkId)?.url : undefined;
+  return undefined;
 };
 
 export const GET: APIRoute = () => {

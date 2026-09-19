@@ -188,9 +188,9 @@
     {"id":"canonical-site","label":"Andrew Pella","type":"canonical-site","url":"https://andrewpella.com"}
   ],
   "contact": {
-    "primaryMethod":"email",
     "email":"a.pella@gmail.com",
-    "note":"Email is the primary public contact channel; LinkedIn is also available for professional contact."
+    "primaryMethod":"none",
+    "note":"Email and LinkedIn are available professional contact routes; GitHub provides public project and portfolio context."
   },
   "resume": {
     "headline":"Senior Product Manager | Observability & SRE Platforms | Enterprise Platforms | Automation & AI",

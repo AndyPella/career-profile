@@ -56,7 +56,9 @@ section('public career model JSON syntax and required fields', () => {
     if (!Array.isArray(career.skills) || career.skills.length === 0) fail('career.skills must be a non-empty array.');
     if (!Array.isArray(career.experience) || career.experience.length === 0) fail('career.experience must be a non-empty array.');
     if (!Array.isArray(career.projects) || career.projects.length === 0) fail('career.projects must be a non-empty array.');
+    const allowedContactMethods = ['none', 'email', 'linkedin', 'github'];
     if (!career.contact?.primaryMethod) fail('career.contact.primaryMethod is required.');
+    else if (!allowedContactMethods.includes(career.contact.primaryMethod)) fail(`career.contact.primaryMethod must be one of: ${allowedContactMethods.join(', ')}.`);
   } catch (error) {
     fail(`career.json is invalid JSON: ${error.message}`);
   }
