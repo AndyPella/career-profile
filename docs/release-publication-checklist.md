@@ -26,7 +26,7 @@ Use this checklist before any first production publication and for later materia
 
 - [ ] Andrew Pella is the consistent public identity.
 - [ ] `https://andrewpella.com` is the canonical site URL.
-- [ ] LinkedIn remains the approved primary professional contact route unless Andrew explicitly approves another public method.
+- [ ] No preferred professional contact route is designated; visitors may choose among the approved public contact options presented on the site.
 - [ ] No unnecessary personal contact information is exposed.
 
 ## Release authorization
