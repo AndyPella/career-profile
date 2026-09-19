@@ -1,6 +1,13 @@
 import type { APIRoute } from 'astro';
 import career from '../data/career.json';
 
+const projectUrl = (project: (typeof career.projects)[number]) => {
+  if (project.id === 'otel-evaluation') return `${career.profile.canonicalUrl}/projects/otel-evaluation`;
+  if (project.id === 'northstar-ridge') return `${career.profile.canonicalUrl}/projects/northstar-ridge`;
+  if (project.id === 'agentic-career-workflow') return `${career.profile.canonicalUrl}/projects/agentic-job-search`;
+  return undefined;
+};
+
 const lines: string[] = [
   `# ${career.profile.name}`,
   '',
@@ -32,7 +39,10 @@ lines.push('## Selected Projects', '');
 for (const id of career.resume.projectIds) {
   const project = career.projects.find((item) => item.id === id);
   if (!project) continue;
-  lines.push(`### ${project.title}`, '', `**Role:** ${project.role}`, '', project.summary, '');
+  const url = projectUrl(project);
+  lines.push(`### ${project.title}`, '');
+  if (url) lines.push(`**Canonical project:** ${url}`, '');
+  lines.push(`**Role:** ${project.role}`, '', project.summary, '');
 }
 
 lines.push('## Expertise', '');
