@@ -32,5 +32,9 @@ Use this checklist before any first production publication and for later materia
 ## Release authorization
 
 - [ ] Automated D2 validation passes on the exact commit proposed for deployment.
+- [ ] If D2 fails, stop for diagnosis and remediation; do not proceed to final review or merge readiness.
+- [ ] If D2 passes, immediately run the final code/diff review without waiting for a separate human approval step.
+- [ ] If the final code/diff review fails, stop for remediation; any new commit must pass D2 again before final review is repeated.
+- [ ] If both D2 and the final code/diff review pass, report the pull request as ready to merge and wait for Andrew's explicit merge approval.
 - [ ] Material career-fact or contact changes have received explicit human review before publication.
 - [ ] Production deployment uses only the approved `main` path and cannot proceed from unreviewed pull-request code.
