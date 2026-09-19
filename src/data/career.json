@@ -189,6 +189,7 @@
   ],
   "contact": {
     "email":"a.pella@gmail.com",
+    "primaryMethod":"none",
     "note":"Email and LinkedIn are available professional contact routes; GitHub provides public project and portfolio context."
   },
   "resume": {
