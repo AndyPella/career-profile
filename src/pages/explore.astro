@@ -4,7 +4,6 @@ import career from '../data/career.json';
 
 const linkedin = career.links.find((link) => link.id === 'linkedin');
 const github = career.links.find((link) => link.id === 'github-profile');
-const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
 ---
 
 <BaseLayout title="Explore — Andrew Pella" description="Site roadmap for Andrew Pella's career profile, experience, projects, resume, machine-readable resources, and contact paths.">
@@ -32,7 +31,7 @@ const portfolio = career.links.find((link) => link.id === 'github-public-portfol
     <ul class="link-list">
       <li><a href="/projects/otel-evaluation">OpenTelemetry Evaluation</a></li>
       <li><a href="/projects/agentic-job-search">Agentic Career Workflow</a></li>
-      {portfolio && <li><a href={portfolio.url}>Northstar Ridge public repository</a></li>}
+      <li><a href="/projects/northstar-ridge">Northstar Ridge case study</a></li>
     </ul>
   </section>
 
