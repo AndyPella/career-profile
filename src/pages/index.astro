@@ -6,17 +6,17 @@ const { name, workingTitle, positioning, summary, summaryDetail } = career.profi
 
 const homepageSkillIds = new Set([
   'product-management',
-  'product-leadership',
-  'observability',
-  'sre-platforms',
-  'logging',
-  'opentelemetry',
-  'incident-management',
-  'automation',
+  'technical-program-leadership',
+  'enterprise-infrastructure',
+  'it-operations',
   'enterprise-platforms',
-  'enterprise-mobility',
+  'platform-modernization',
+  'endpoint-services',
+  'digital-workplace',
+  'it-service-delivery',
+  'sre-platforms',
+  'automation',
   'ai-assisted-workflows',
-  'agentic-ai',
 ]);
 const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skill.id));
 
@@ -50,8 +50,8 @@ const email = career.contact.email;
     <p class="section-kicker">Discovery</p>
     <h2 id="expertise-heading">Areas of expertise</h2>
     <p>
-      Core areas of experience span product leadership, observability, SRE platforms, enterprise
-      platforms, automation, and AI-assisted systems.
+      Core experience spans technical product and program leadership, enterprise infrastructure and IT operations,
+      endpoint and digital workplace services, SRE and reliability platforms, automation, and AI-assisted operations.
     </p>
     <ul class="tag-list" aria-label="Areas of expertise">
       {homepageSkills.map((skill) => <li>{skill.label}</li>)}
@@ -60,7 +60,7 @@ const email = career.contact.email;
 
   <section class="section" aria-labelledby="career-heading">
     <p class="section-kicker">Context</p>
-    <h2 id="career-heading">Product leadership grounded in technical operations</h2>
+    <h2 id="career-heading">Product and program leadership grounded in technical operations</h2>
     <p>{summaryDetail}</p>
   </section>
 
@@ -68,8 +68,8 @@ const email = career.contact.email;
     <p class="section-kicker">Evidence</p>
     <h2 id="evidence-heading">Selected work</h2>
     <p>
-      These projects provide concrete evidence across observability, platform product leadership,
-      automation, and AI-assisted workflow design.
+      These projects provide concrete evidence across enterprise technology, platform product leadership,
+      reliability, automation, and AI-assisted workflow design.
     </p>
 
     <div class="card-grid">
@@ -91,7 +91,7 @@ const email = career.contact.email;
     <p class="section-kicker">How to use this site</p>
     <h2 id="path-heading">Discovery → Evidence → Contact</h2>
     <ol>
-      <li><strong>Discovery:</strong> identify relevant expertise and product-leadership domains.</li>
+      <li><strong>Discovery:</strong> identify relevant expertise and leadership domains.</li>
       <li><strong>Evidence:</strong> review <a href="/experience">experience</a>, <a href="/projects">projects</a>, and the <a href="/resume">public resume</a>.</li>
       <li><strong>Contact:</strong> use the <a href="/contact">contact page</a> to connect by email or LinkedIn.</li>
     </ol>
