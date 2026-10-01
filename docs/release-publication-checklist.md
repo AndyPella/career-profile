@@ -6,7 +6,9 @@ Use this checklist before any first production publication and for later materia
 
 - [ ] All career facts come from the approved downstream public content model.
 - [ ] No private repository URL, internal employer URL, application record, recruiter communication, evidence note, private prompt, context-loader detail, credential, token, key, compensation detail, private phone number, or private email address is exposed unless specifically approved.
-- [ ] Salesforce SRE wording preserves the Product Owner/Product Manager and platform-leadership boundary; it does not imply hands-on SRE engineering or production tool administration without a separately approved claim.
+- [ ] Salesforce SRE wording preserves the Product Owner/Product Manager and observability-platform-product-leadership boundary; it does not imply hands-on SRE engineering, production tool administration, configuration, or operation without a separately approved claim.
+- [ ] High-level positioning uses relationship language such as `observability platform product leadership`, `product ownership`, `portfolio leadership`, or `product responsibility` rather than ambiguous wording that could imply direct SRE-tool experience.
+- [ ] When Splunk, Logstash, New Relic, Grafana, PagerDuty, OpenTelemetry, or related platforms are named, the surrounding wording makes Andrew's Product Owner/Product Manager relationship clear unless a separately approved hands-on claim exists.
 - [ ] OpenTelemetry content makes no unapproved cost-savings or financial-savings claim.
 - [ ] Agentic Career Workflow content remains sanitized and does not disclose private candidate/application data or claim Andrew personally coded every agent/automation capability.
 - [ ] Human-facing pages and machine-readable outputs represent the same approved facts and privacy boundaries.
