@@ -40,9 +40,13 @@ Examples include:
 
 ## Role positioning
 
-Public content presents Andrew as a technical product and program leader with experience spanning enterprise infrastructure, IT operations, enterprise platforms, endpoint and digital workplace services, SRE and reliability, automation, and AI-assisted operations.
+Public content presents Andrew as a technical product and program leader with experience spanning enterprise infrastructure, IT operations, enterprise platforms, endpoint and digital workplace services, observability platform product leadership, automation, and AI-assisted operations.
 
-The model preserves the distinction between product or platform leadership and hands-on engineering. Andrew's Salesforce SRE assignment is presented as Product Owner/Product Manager and platform leadership. Earlier Client Engineering and prior infrastructure roles represent hands-on engineering and operations experience.
+The model preserves the distinction between product or platform leadership and hands-on engineering. Andrew's Salesforce SRE assignment is presented as Product Owner/Product Manager and observability platform product leadership. Earlier Client Engineering and prior infrastructure roles represent hands-on engineering and operations experience.
+
+For the Salesforce SRE assignment, high-level positioning should use language such as `observability platform product leadership`, `product ownership`, `portfolio leadership`, or `product responsibility`. Naming Splunk, Logstash, New Relic, Grafana, PagerDuty, OpenTelemetry, or related SRE/observability platforms does not establish hands-on administration, configuration, or SRE engineering. When those tools are named, the surrounding language must preserve Andrew's Product Owner/Product Manager relationship to them unless a separately approved hands-on claim exists.
+
+Do not use broad labels such as `SRE`, `SRE platforms`, `SRE & Reliability`, or bare `Observability` in a way that could reasonably imply Andrew directly administered or engineered the Salesforce SRE toolchain. These terms may still appear when accurately naming the organization, functional assignment, teams, domain, or initiative, provided the role boundary remains explicit in context.
 
 That distinction is established before information enters this public model rather than through embedded authoring instructions.
 
