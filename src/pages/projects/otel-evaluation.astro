@@ -7,7 +7,7 @@ if (!project) throw new Error('Approved OpenTelemetry project data is missing.')
 const skills = career.skills.filter((skill) => project.skillIds.includes(skill.id));
 ---
 
-<BaseLayout title="OpenTelemetry Evaluation — Andrew Pella" description={project.summary}>
+<BaseLayout title="OpenTelemetry Evaluation and Production Deployment — Andrew Pella" description={project.summary}>
   <section class="page-intro">
     <p class="eyebrow">Case study</p>
     <h1>{project.title}</h1>
@@ -17,13 +17,13 @@ const skills = career.skills.filter((skill) => project.skillIds.includes(skill.i
 
   <section class="section">
     <p class="section-kicker">Problem and context</p>
-    <h2>Evaluate OpenTelemetry for an enterprise observability environment</h2>
-    <p>The work examined whether OpenTelemetry could satisfy platform requirements across policy, security, transport, storage, development testing, operational overhead, and complexity while progressing safely toward production validation.</p>
+    <h2>Evaluate and safely move OpenTelemetry into enterprise production</h2>
+    <p>The work examined whether OpenTelemetry could satisfy platform requirements across policy, security, transport, storage, development testing, operational overhead, and complexity, then progressed through controlled production validation and deployment.</p>
   </section>
 
   <section class="section">
     <p class="section-kicker">Approach</p>
-    <h2>Feasibility through production dual-run</h2>
+    <h2>Feasibility through full production deployment</h2>
     <ol class="step-list">
       {project.approach.map((item) => <li>{item}</li>)}
     </ol>

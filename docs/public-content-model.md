@@ -33,19 +33,22 @@ Public objects use stable IDs so downstream outputs can reference shared records
 Examples include:
 
 - `salesforce-sre-product`
-- `sre-platforms`
+- `enterprise-infrastructure`
+- `technical-program-leadership`
 - `otel-evaluation`
 - `agentic-career-workflow`
 
 ## Role positioning
 
-Public content preserves the distinction between product or platform leadership and hands-on engineering. Andrew's Salesforce SRE assignment is presented as Product Owner/Product Manager and platform leadership. Earlier Client Engineering work represents hands-on engineering experience.
+Public content presents Andrew as a technical product and program leader with experience spanning enterprise infrastructure, IT operations, enterprise platforms, endpoint and digital workplace services, SRE and reliability, automation, and AI-assisted operations.
+
+The model preserves the distinction between product or platform leadership and hands-on engineering. Andrew's Salesforce SRE assignment is presented as Product Owner/Product Manager and platform leadership. Earlier Client Engineering and prior infrastructure roles represent hands-on engineering and operations experience.
 
 That distinction is established before information enters this public model rather than through embedded authoring instructions.
 
 ## Canonical public resume
 
-The website exposes one canonical static public resume.
+The website exposes one canonical static public resume aligned with the current approved standard-resume positioning.
 
 1. `src/data/career.json` is the shared public model.
 2. The `resume` object defines the fixed public resume presentation.
@@ -55,7 +58,9 @@ The website exposes one canonical static public resume.
 
 Canonical public resume headline:
 
-`Senior Product Manager | Observability & SRE Platforms | Enterprise Platforms | Automation & AI`
+`Technical Product & Program Leader | Enterprise Technology | Infrastructure & Operations`
+
+The public site may provide additional project and evidence context beyond the standard resume, but it must not create a competing or inconsistent career narrative.
 
 ## Public disclosure rules
 
