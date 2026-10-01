@@ -48,7 +48,7 @@ That distinction is established before information enters this public model rath
 
 ## Canonical public resume
 
-The website exposes one canonical static public resume aligned with the approved V4 standard resume positioning.
+The website exposes one canonical static public resume aligned with the current approved standard-resume positioning.
 
 1. `src/data/career.json` is the shared public model.
 2. The `resume` object defines the fixed public resume presentation.
