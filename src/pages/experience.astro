@@ -12,35 +12,45 @@ const recentExperience = career.experience.filter((role) => recentExperienceIds.
 const earlierExperience = career.experience.filter((role) => !recentExperienceIds.has(role.id));
 const evidenceGroups = [
   {
-    title: 'Product leadership for observability and SRE platforms',
-    ids: ['salesforce-sre-product'],
-    summary: 'Product and portfolio leadership across Logging, Monitoring, Tools Development, and Incident Management, including roadmaps, intake, prioritization, platform stewardship, and executive review.'
+    title: 'Technical product and program leadership',
+    ids: ['salesforce-sre-product', 'salesforce-mobile-windows-product'],
+    summary: 'Senior Product Owner and Product Manager leadership across enterprise platforms, operational services, roadmaps, prioritization, delivery coordination, and executive review.'
   },
   {
-    title: 'OpenTelemetry evaluation',
+    title: 'Enterprise infrastructure and IT operations',
+    ids: ['salesforce-client-engineering', 'conway-senior-systems-analyst', 'hp-technical-consultant'],
+    summary: 'Hands-on architecture and engineering experience spanning infrastructure, networking, client computing, vendor coordination, deployment readiness, lifecycle support, and production operations.'
+  },
+  {
+    title: 'Endpoint, mobility, and digital workplace',
+    ids: ['salesforce-mobile-windows-product', 'salesforce-client-engineering'],
+    summary: 'Product leadership and hands-on engineering across Windows, enterprise mobility, endpoint lifecycle, access, service delivery, and digital-workplace services.'
+  },
+  {
+    title: 'SRE, observability, and reliability platforms',
     ids: ['salesforce-sre-product'],
-    summary: 'Product-led feasibility and production dual-run work covering policy, security, transport, storage, development testing, operational overhead, and complexity.',
+    summary: 'Product and portfolio leadership across Logging, Monitoring, Tools Development, and Incident Management, including Splunk, Logstash, New Relic, Grafana, PagerDuty, and OpenTelemetry.',
     href: '/projects/otel-evaluation'
   },
   {
-    title: 'Automation and AI-assisted workflows',
+    title: 'AI-assisted operations',
     ids: ['salesforce-sre-product'],
-    summary: 'AI-assisted workflow design and governed implementation with human review, validation, traceability, access boundaries, and exception handling.',
+    summary: 'Governed AI-assisted workflow design with human approval, validation, traceability, access controls, exception handling, failure routing, and auditability.',
     href: '/projects/agentic-job-search'
   },
   {
-    title: 'Enterprise platforms and mobility',
-    ids: ['salesforce-mobile-windows-product', 'salesforce-client-engineering'],
-    summary: 'Product ownership for enterprise mobile and Windows services, backed by earlier hands-on infrastructure and mobility engineering experience.'
+    title: 'Large-scale implementation and deployment',
+    ids: ['salesforce-client-engineering', 'conway-senior-systems-analyst'],
+    summary: 'Technology transformation from requirements and proof of concept through pilot, phased rollout, production deployment, modernization, and lifecycle management across enterprise-scale environments.'
   },
 ];
 ---
 
-<BaseLayout title="Experience — Andrew Pella" description="Product leadership experience across observability, SRE platforms, enterprise platforms, automation, and AI-assisted systems.">
+<BaseLayout title="Experience — Andrew Pella" description="Technical product and program leadership grounded in enterprise infrastructure, IT operations, platforms, reliability, endpoint services, automation, and AI-assisted operations.">
   <section class="page-intro">
     <p class="eyebrow">Experience</p>
-    <h1>Product leadership with deep technical context</h1>
-    <p class="hero-positioning">Andrew's recent work centers on product ownership and product management for observability, SRE, and enterprise platforms, supported by earlier hands-on engineering and operations experience.</p>
+    <h1>Technical leadership across product, program, infrastructure, and operations</h1>
+    <p class="hero-positioning">Andrew's career combines senior technical product and program leadership with hands-on experience in enterprise infrastructure, IT operations, endpoint services, mobility, digital workplace technology, SRE platforms, automation, and large-scale technology transformation.</p>
   </section>
 
   <section class="section" aria-labelledby="evidence-heading">
@@ -80,7 +90,7 @@ const evidenceGroups = [
 
   <section class="section" aria-labelledby="earlier-heading">
     <p class="section-kicker">Earlier career</p>
-    <h2 id="earlier-heading">Infrastructure, architecture, and technical operations</h2>
+    <h2 id="earlier-heading">Infrastructure, architecture, technical operations, and deployment leadership</h2>
     <div class="stack-list compact-list">
       {earlierExperience.map((role) => (
         <article class="experience-entry" id={role.id}>
