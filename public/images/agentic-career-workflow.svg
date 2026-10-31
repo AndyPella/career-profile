@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+<title id="title">Agentic Career Workflow</title>
+<desc id="desc">Eight stages in order. Read the upper row left to right, then the lower row right to left. Human Decision and Approve are human-controlled gates. Failed validation returns work to revision. Confirmed events inform later improvements.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#657a90"/></marker></defs>
+<rect width="1200" height="700" fill="#ffffff"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="60" y="70" font-size="34" font-weight="700" fill="#0f3b6e">Agentic Career Workflow</text>
+<text x="60" y="108" font-size="19" fill="#425a72">Evidence supports recommendations. Human decisions control consequential actions.</text>
+<g stroke="#657a90" stroke-width="2.5" fill="none" marker-end="url(#arrow)">
+<path d="M290 255 H337"/><path d="M575 255 H622"/><path d="M860 255 H907"/>
+<path d="M1030 330 V402"/><path d="M915 485 H868"/><path d="M630 485 H583"/><path d="M345 485 H298"/>
+</g><g><rect x="60" y="180" width="230" height="150" rx="3" fill="#eef4fa" stroke="#b7c9dc" stroke-width="1.4"/>
+<text x="77" y="209" font-size="12" letter-spacing="1" font-weight="700" fill="#2e6dd8">WORKFLOW STAGE</text>
+<text x="77" y="246" font-size="20" font-weight="700" fill="#172337">1. Discover</text><text x="77" y="278" font-size="16" fill="#425a72">Gather plausible</text><text x="77" y="301" font-size="16" fill="#425a72">opportunities</text></g><g><rect x="345" y="180" width="230" height="150" rx="3" fill="#eef4fa" stroke="#b7c9dc" stroke-width="1.4"/>
+<text x="362" y="209" font-size="12" letter-spacing="1" font-weight="700" fill="#2e6dd8">WORKFLOW STAGE</text>
+<text x="362" y="246" font-size="20" font-weight="700" fill="#172337">2. Qualify / Evaluate</text><text x="362" y="278" font-size="16" fill="#425a72">Check requirements and</text><text x="362" y="301" font-size="16" fill="#425a72">evidence</text></g><g><rect x="630" y="180" width="230" height="150" rx="3" fill="#e8f4f1" stroke="#087f7b" stroke-width="1.4"/>
+<text x="647" y="209" font-size="12" letter-spacing="1" font-weight="700" fill="#087f7b">HUMAN GATE</text>
+<text x="647" y="246" font-size="20" font-weight="700" fill="#172337">3. Human Decision</text><text x="647" y="278" font-size="16" fill="#425a72">Choose work and authorize</text><text x="647" y="301" font-size="16" fill="#425a72">materials</text></g><g><rect x="915" y="180" width="230" height="150" rx="3" fill="#eef4fa" stroke="#b7c9dc" stroke-width="1.4"/>
+<text x="932" y="209" font-size="12" letter-spacing="1" font-weight="700" fill="#2e6dd8">WORKFLOW STAGE</text>
+<text x="932" y="246" font-size="20" font-weight="700" fill="#172337">4. Generate</text><text x="932" y="278" font-size="16" fill="#425a72">Prepare the authorized</text><text x="932" y="301" font-size="16" fill="#425a72">content</text></g><g><rect x="915" y="410" width="230" height="150" rx="3" fill="#eef4fa" stroke="#b7c9dc" stroke-width="1.4"/>
+<text x="932" y="439" font-size="12" letter-spacing="1" font-weight="700" fill="#2e6dd8">WORKFLOW STAGE</text>
+<text x="932" y="476" font-size="20" font-weight="700" fill="#172337">5. Validate</text><text x="932" y="508" font-size="16" fill="#425a72">Check truth, relevance</text><text x="932" y="531" font-size="16" fill="#425a72">and usability</text></g><g><rect x="630" y="410" width="230" height="150" rx="3" fill="#e8f4f1" stroke="#087f7b" stroke-width="1.4"/>
+<text x="647" y="439" font-size="12" letter-spacing="1" font-weight="700" fill="#087f7b">HUMAN GATE</text>
+<text x="647" y="476" font-size="20" font-weight="700" fill="#172337">6. Approve</text><text x="647" y="508" font-size="16" fill="#425a72">Review before the next</text><text x="647" y="531" font-size="16" fill="#425a72">action</text></g><g><rect x="345" y="410" width="230" height="150" rx="3" fill="#eef4fa" stroke="#b7c9dc" stroke-width="1.4"/>
+<text x="362" y="439" font-size="12" letter-spacing="1" font-weight="700" fill="#2e6dd8">WORKFLOW STAGE</text>
+<text x="362" y="476" font-size="20" font-weight="700" fill="#172337">7. Track</text><text x="362" y="508" font-size="16" fill="#425a72">Record confirmed events</text><text x="362" y="531" font-size="16" fill="#425a72">and outcomes</text></g><g><rect x="60" y="410" width="230" height="150" rx="3" fill="#eef4fa" stroke="#b7c9dc" stroke-width="1.4"/>
+<text x="77" y="439" font-size="12" letter-spacing="1" font-weight="700" fill="#2e6dd8">WORKFLOW STAGE</text>
+<text x="77" y="476" font-size="20" font-weight="700" fill="#172337">8. Learn / Improve</text><text x="77" y="508" font-size="16" fill="#425a72">Refine the process using</text><text x="77" y="531" font-size="16" fill="#425a72">evidence</text></g><text x="60" y="617" font-size="17" fill="#425a72">Unresolved evidence stays visible. Failed checks return to revision.</text><text x="60" y="648" font-size="17" fill="#425a72">Document approval and confirmed application submission remain separate events.</text></g></svg>

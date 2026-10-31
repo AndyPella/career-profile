@@ -226,6 +226,14 @@
       "summary":"Public case study demonstrating progression from GenAI assistance to structured AI workflows and a governed agentic operating model.",
       "role":"Product owner, workflow designer, tester, and decision-maker",
       "workflow":["Discover","Qualify / Evaluate","Human Decision","Generate","Validate","Approve","Track","Learn / Improve"],
+      "approach":[
+        "Separate discovery from qualification. A plausible lead needs evidence before it becomes a recommendation.",
+        "Keep pursuit decisions, document approval and confirmed submission as distinct workflow states.",
+        "Use verified experience to support recommendations and generated content. Preserve unknowns and exceptions explicitly.",
+        "Validate content before downstream actions and return failed checks to revision.",
+        "Retain one record of each opportunity and derive consistent progress views from that state.",
+        "Use observed failure modes to refine the workflow without treating missing evidence as a successful result."
+      ],
       "agenticProperties":[
         "Persistent workflow state across stages.",
         "Specialized functional stages.",
