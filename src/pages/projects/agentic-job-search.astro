@@ -24,23 +24,82 @@ const portfolio = career.links.find((link) => link.id === 'github-public-portfol
 
   <section class="section">
     <p class="section-kicker">Workflow</p>
-    <h2>End-to-end lifecycle</h2>
-    <ol class="step-list">
-      {project.workflow.map((step) => <li>{step}</li>)}
-    </ol>
+    <h2>Workflow and approval points</h2>
+    <figure class="workflow-figure">
+      <a href="/images/agentic-career-workflow.svg" aria-label="Open the career workflow diagram at full size">
+        <img src="/images/agentic-career-workflow.svg" width="1200" height="700" loading="lazy"
+          alt="Eight workflow stages: Discover, Qualify and Evaluate, Human Decision, Generate, Validate, Approve, Track, and Learn and Improve. Human Decision and Approve are human-controlled gates." />
+      </a>
+      <figcaption>Human decisions and approval gates control progression. The person chooses work, authorizes materials, submits applications and confirms what actually happened.</figcaption>
+    </figure>
+    <details class="workflow-transcript">
+      <summary>Read the workflow stages</summary>
+      <ol class="step-list">
+        {project.workflow.map((step) => <li>{step}</li>)}
+      </ol>
+    </details>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Design decisions</p>
+    <h2>How I structured the work</h2>
+    <p>My role combines product ownership, workflow design and testing. I use explicit states and decision points to make the next action clear and keep consequential choices with the person using the workflow.</p>
+    <figure class="workflow-figure">
+      <a href="/images/career-workflow-qualification.svg" aria-label="Open the qualification diagram at full size">
+        <img src="/images/career-workflow-qualification.svg" width="800" height="760" loading="lazy" alt="Discover a lead, then evaluate evidence. Unknowns remain on hold; unsuitable leads are not pursued. Supported leads become recommendations for a human decision." />
+      </a>
+      <figcaption>Evidence supports the recommendation; the person makes the pursuit decision.</figcaption>
+    </figure>
+    <details class="workflow-transcript">
+      <summary>Read the design decisions</summary>
+      <ol class="step-list">
+        {project.approach?.map((decision) => <li>{decision}</li>)}
+      </ol>
+    </details>
+  </section>
+
+  <section class="section">
+    <p class="section-kicker">Lessons from testing</p>
+    <h2>An output needs evidence of completion</h2>
+    <p>Testing exposed a key distinction: a prepared document, an approved version and a submitted application are separate events. The record preserves both confirmed events and unresolved status.</p>
+    <figure class="workflow-figure">
+      <a href="/images/career-workflow-evidence.svg" aria-label="Open the evidence diagram at full size">
+        <img src="/images/career-workflow-evidence.svg" width="800" height="760" loading="lazy" alt="Materials are prepared and reviewed for approval. Submission is confirmed only with evidence. Without evidence, submission stays unconfirmed. Both confirmed events and unresolved status are retained in the opportunity record." />
+      </a>
+      <figcaption>The opportunity record retains what happened and what still needs confirmation.</figcaption>
+    </figure>
+
+    <p>This case study demonstrates workflow design and governance. It does not claim a measured improvement in hiring outcomes.</p>
   </section>
 
   <section class="section">
     <p class="section-kicker">Agentic properties</p>
     <h2>Governed orchestration rather than simple prompting</h2>
-    <ul>
-      {project.agenticProperties.map((property) => <li>{property}</li>)}
-    </ul>
+    <p>Validation controls the next step. Failed checks return work to revision; missing evidence puts it on hold. Work that passes moves to human review.</p>
+    <figure class="workflow-figure">
+      <a href="/images/career-workflow-validation.svg" aria-label="Open the validation diagram at full size">
+        <img src="/images/career-workflow-validation.svg" width="800" height="760" loading="lazy" alt="Generate materials, then validate. A failed check returns work to revision and generation. Missing evidence puts work on hold before revalidation. Passing checks moves work to human approval." />
+      </a>
+      <figcaption>Conditional routing makes revision and recovery part of the workflow.</figcaption>
+    </figure>
+    <details class="workflow-transcript">
+      <summary>Read the orchestration properties</summary>
+      <ul>
+        {project.agenticProperties.map((property) => <li>{property}</li>)}
+      </ul>
+    </details>
   </section>
 
   <section class="section">
     <p class="section-kicker">Governance</p>
     <h2>Human approval remains explicit</h2>
+    <figure class="workflow-figure">
+      <a href="/images/career-workflow-approval.svg" aria-label="Open the approval diagram at full size">
+        <img src="/images/career-workflow-approval.svg" width="800" height="760" loading="lazy" alt="The system evaluates opportunities, then a person chooses a pursuit. The system prepares and validates materials, then a person approves them. A person submits and confirms the application before the system tracks and summarizes the confirmed state." />
+      </a>
+      <figcaption>Teal blocks mark human decisions and actions. System assistance operates between those gates.</figcaption>
+    </figure>
+
     <p>The public case study intentionally excludes private application records, recruiter communications, private prompts and source files, credentials, tokens, and sensitive implementation details. It also does not claim that Andrew personally coded every agent or automation capability.</p>
   </section>
 
@@ -57,3 +116,13 @@ const portfolio = career.links.find((link) => link.id === 'github-public-portfol
     <p>Return to the <a href="/">profile</a>, browse <a href="/projects">all project evidence</a>, review the <a href="/resume">public resume</a>, or <a href="/contact">contact Andrew</a>.</p>
   </section>
 </BaseLayout>
+
+<style>
+  .workflow-figure { margin: 1.75rem 0 1rem; }
+  .workflow-figure a { display: block; }
+  .workflow-figure:has(img[width="800"]) { max-width: 50rem; margin-inline: auto; }
+  .workflow-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--brand-border); }
+  .workflow-figure figcaption { max-width: 56rem; margin-top: 0.85rem; color: var(--brand-text); font-size: 0.95rem; }
+  .workflow-transcript { margin-top: 1.25rem; }
+  .workflow-transcript summary { cursor: pointer; font-weight: 700; color: var(--brand-navy); }
+</style>

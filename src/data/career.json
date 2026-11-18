@@ -530,6 +530,14 @@
         "automation",
         "ai-assisted-workflows",
         "agentic-ai"
+      ],
+      "approach": [
+        "Separate discovery from qualification. A plausible lead needs evidence before it becomes a recommendation.",
+        "Keep pursuit decisions, document approval and confirmed submission as distinct workflow states.",
+        "Use verified experience to support recommendations and generated content. Preserve unknowns and exceptions explicitly.",
+        "Validate content before downstream actions and return failed checks to revision.",
+        "Retain one record of each opportunity and derive consistent progress views from that state.",
+        "Use observed failure modes to refine the workflow without treating missing evidence as a successful result."
       ]
     }
   ],
