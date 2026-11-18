@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "version": "V5",
+  "url": "/downloads/Andrew-Pella-Resume.pdf",
+  "published_on": "2026-11-18",
+  "page_count": 3,
+  "source_fingerprint": "20b29aa9ce0dc300ac6ca8b2c8d655c88a76cafe21b22a91891c98115f0dd5e3",
+  "format_policy_fingerprint": "1cb5db42ea31766d853eaef25d54dfc6ee7ac4ef12c500e5a274fbb3a6971030",
+  "version_index_fingerprint": "70cb67afead94034b894078f536fb96bced7952e7784e5b48fbac4506c405ed2",
+  "pdf_sha256": "1058510fdd397229426a0c2321e4105599ba9ca69f03398322c6271c34b1c635",
+  "build_profile_sha256": "8dc111ba27cc1db8037d28cef82f72bbc63c5218bcde029b981bb537aff0d62a",
+  "visual_review": "passed"
+}

@@ -11,8 +11,10 @@
     "build": "astro build",
     "validate:source": "node scripts/validate-public-source.mjs",
     "validate:release": "node scripts/validate-release.mjs",
-    "check:release": "npm run validate:source && npm run build && npm run validate:release",
-    "preview": "astro preview"
+    "check:release": "npm run validate:source && npm run validate:download && npm run test:download && npm run build && npm run validate:release",
+    "preview": "astro preview",
+    "validate:download": "node scripts/check-resume-download.mjs",
+    "test:download": "node --test scripts/check-resume-download.test.mjs"
   },
   "dependencies": {
     "astro": "7.4.7"
