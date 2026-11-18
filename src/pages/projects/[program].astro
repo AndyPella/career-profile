@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import career from '../../data/career.json';
+export function getStaticPaths() {
+  return career.projects.filter(p => ['conway-enterprise-programs','enterprise-mobility','sre-portfolio','global-endpoint-services'].includes(p.id)).map(project => ({params:{program:project.slug},props:{project}}));
+}
+const { project } = Astro.props;
+const conway = project.id === 'conway-enterprise-programs';
+const mobility = project.id === 'enterprise-mobility';
+---
+<BaseLayout title={`${project.title} — Andrew Pella`} description={project.summary}>
+  <section class="page-intro">
+    <p class="eyebrow">{project.role}</p>
+    <h1>{conway ? 'Enterprise transformation. Across a nationwide freight network.' : mobility ? 'Enterprise mobility, from implementation to modernization.' : project.title}</h1>
+    <p class="hero-positioning">{project.summary}</p>
+  </section>
+  {conway ? <>
+    <div class="scope-stats" aria-label="Con-way deployment scale"><div><strong>450+ sites</strong><span>nationwide thin-client deployment scope</span></div><div><strong>5,000+ devices</strong><span>initial deployment supported</span></div><div><strong>~25 sites/week</strong><span>planned deployment pace</span></div></div>
+    <section class="section"><h2>National thin-client replacement</h2><div class="case-grid">
+      <section><h3>Requirements & technical selection</h3><p>Authored requirements, evaluated vendors and devices, developed the shortlist, made the technical recommendation, and participated in final selection.</p></section>
+      <section><h3>Deployment ownership</h3><p>Managed the nationwide deployment vendor. Coordinated network and site readiness, equipment delivery, installation, user communications, service-desk preparation, and cutovers.</p></section>
+      <section><h3>Infrastructure modernization</h3><p>Worked with business, networking, and application teams on the transition from legacy serial connectivity and Frame Relay toward TCP/IP LAN/WAN connectivity and wireless networking.</p></section>
+      <section><h3>Production continuity & support</h3><p>Coordinated operational continuity during rollout and established imaging, support, break-fix, repair, replacement, and vendor-escalation processes.</p></section>
+    </div></section>
+    <section class="section"><h2>More enterprise programs at Con-way</h2><div class="card-grid program-grid">
+      <article class="card"><p class="section-kicker">Freight operations technology</p><h3>Mobile handheld introduction</h3><p>Interviewed business leaders, defined requirements, evaluated vendors, and helped select devices for pilots. Supported phased rollout and production adoption for freight scanning, tracking, dock loading, and routing.</p><p>Established configuration, troubleshooting, spare-device, repair, replacement, remote-management, tracking, and reporting practices.</p></article>
+      <article class="card"><p class="section-kicker">Delivery governance</p><h3>Distributed Systems Administration</h3><p>Created the original team charter and worked with developers, change-control teams, and management to define responsibilities, processes, and service-level agreements.</p><p>Established change, release, and environment-management controls across development, testing, preproduction, and production.</p></article>
+    </div></section>
+  </> : mobility ? <>
+    <div class="scope-stats" aria-label="Mobility program scope"><div><strong>~70,000</strong><span>managed devices in the migration</span></div><div><strong>No re-enrollment</strong><span>required for the migration</span></div><div><strong>Full lifecycle</strong><span>architecture through operational support</span></div></div>
+    <section class="section"><div class="case-grid">
+      <section><h2>The program</h2><p>Establish enterprise mobility capabilities and evolve the platform through a major migration while preserving service continuity.</p></section>
+      <section><h2>What I owned</h2><p>Requirements, architecture, proof of concept, pilot, phased rollout, integrations, vendor coordination, production operations, and lifecycle support.</p></section>
+      <section><h2>Technical delivery</h2><p>Designed and coordinated infrastructure and integrations across servers, databases, identity, certificates, VPN, Wi-Fi, email, calendar, applications, and security controls.</p></section>
+      <section><h2>The result</h2><p>Led the hands-on Workspace ONE migration across approximately 70,000 managed devices without requiring re-enrollment, with minimal user disruption.</p></section>
+    </div></section>
+  </> : <section class="section"><h2>Ownership and delivery</h2><ul class="step-list">{project.approach.filter(item => !item.includes('OpenTelemetry')).map(item => <li>{item}</li>)}</ul>{project.id === 'sre-portfolio' && <details><summary>Supporting delivery example: OpenTelemetry</summary><p>{project.approach.find(item => item.startsWith('Led an OpenTelemetry'))}</p><a href="/projects/otel-evaluation">Read the supporting case study →</a></details>}</section>}
+  <section class="section"><a href="/projects">← Selected programs</a><p>Explore <a href="/experience">career experience</a> or <a href="/contact">connect with Andrew</a>.</p></section>
+</BaseLayout>

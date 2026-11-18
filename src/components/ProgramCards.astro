@@ -1,0 +1,12 @@
+---
+import career from '../data/career.json';
+const programs = career.projects.filter(p => ['conway-enterprise-programs', 'enterprise-mobility', 'sre-portfolio', 'global-endpoint-services'].includes(p.id));
+---
+<div class="card-grid program-grid">
+  {programs.map(program => <article class="card">
+    <p class="section-kicker">{program.role}</p>
+    <h3>{program.title}</h3>
+    <p>{program.summary}</p>
+    <a href={`/projects/${program.slug}`}>Explore the program →</a>
+  </article>)}
+</div>

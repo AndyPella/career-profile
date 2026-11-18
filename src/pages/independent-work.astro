@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import career from '../data/career.json';
+const projects = career.projects.filter(p => ['northstar-ridge', 'agentic-career-workflow'].includes(p.id));
+const routes: Record<string,string> = {'northstar-ridge':'/projects/northstar-ridge','agentic-career-workflow':'/projects/agentic-job-search'};
+---
+<BaseLayout title="Independent Projects & Applied AI — Andrew Pella" description="Independent product design, AI-assisted operations, and governed workflow case studies by Andrew Pella.">
+  <section class="page-intro"><p class="eyebrow">Independent projects & applied AI</p><h1>New tools.<br />The same ownership mindset.</h1><p class="hero-positioning">Recent independent work exploring product design, AI-assisted operations, and governed workflows.</p></section>
+  <section class="section" aria-label="Independent projects"><div class="card-grid program-grid">{projects.map(project => <article class="card"><p class="section-kicker">{project.role}</p><h2>{project.title}</h2><p>{project.summary}</p><a href={routes[project.id]}>Read the case study →</a></article>)}</div></section>
+  <section class="section"><h2>Explore my enterprise work</h2><p>See the programs behind my experience in enterprise platforms, infrastructure, and technical delivery.</p><a class="button" href="/projects">View selected programs →</a></section>
+</BaseLayout>
