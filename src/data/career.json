@@ -502,8 +502,8 @@
       "id": "agentic-career-workflow",
       "title": "Agentic Career Workflow",
       "slug": "agentic-career-workflow",
-      "summary": "Public case study demonstrating progression from GenAI assistance to structured AI workflows and a governed agentic operating model.",
-      "role": "Product owner, workflow designer, tester, and decision-maker",
+      "summary": "Agent-assisted position-search workflow designed and built to identify suitable opportunities, prepare truthful application materials, and maintain a reliable record of what happened.",
+      "role": "Product owner, workflow designer, builder, tester, and decision-maker",
       "workflow": [
         "Discover",
         "Qualify / Evaluate",
@@ -532,12 +532,17 @@
         "agentic-ai"
       ],
       "approach": [
-        "Separate discovery from qualification. A plausible lead needs evidence before it becomes a recommendation.",
-        "Keep pursuit decisions, document approval and confirmed submission as distinct workflow states.",
-        "Use verified experience to support recommendations and generated content. Preserve unknowns and exceptions explicitly.",
-        "Validate content before downstream actions and return failed checks to revision.",
-        "Retain one record of each opportunity and derive consistent progress views from that state.",
-        "Use observed failure modes to refine the workflow without treating missing evidence as a successful result."
+        "Begin with broad guidance and refine requirements through active use while preserving truthful claims and verifiable outcomes.",
+        "Use GitHub as the controlled record, requiring a pull request and Andrew’s approval before changes merge.",
+        "Give each position a unique identifier connecting its announcement, application materials, application status, and employer responses; generate reports from those records.",
+        "Use a primary agent persona with focused Markdown instructions and scripts, and a specialized reporting agent for designated reports.",
+        "Simplify core instructions and require checks of the applicable workflow to reduce assumptions and incorrect outputs.",
+        "Use the PR process to manage fixes and features and reverse specific changes when broader use exposes failures."
+      ],
+      "outcomes": [
+        "Simplified instructions and explicit workflow checks reduced the incorrect outputs and conflicting pull requests Andrew observed.",
+        "An email-processing feature passed a small test but exceeded practical execution limits during broader use; specific changes were reversed while retaining email reading.",
+        "The workflow remains in active use and ongoing refinement."
       ]
     }
   ],

@@ -1,128 +1,61 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import career from '../../data/career.json';
-
-const project = career.projects.find((item) => item.id === 'agentic-career-workflow');
-if (!project) throw new Error('Approved agentic workflow project data is missing.');
-const skills = career.skills.filter((skill) => project.skillIds.includes(skill.id));
-const portfolio = career.links.find((link) => link.id === 'github-public-portfolio');
+const project = career.projects.find(item => item.id === 'agentic-career-workflow');
+if (!project) throw new Error('Approved workflow project data is missing.');
 ---
 
 <BaseLayout title="Agentic Career Workflow — Andrew Pella" description={project.summary}>
-  <section class="page-intro">
-    <p class="eyebrow">Case study</p>
-    <h1>{project.title}</h1>
-    <p class="hero-positioning">{project.summary}</p>
-    <p class="card-role">Role: {project.role}</p>
-  </section>
-
-  <section class="section">
-    <p class="section-kicker">Problem and context</p>
-    <h2>Turn a multi-stage career workflow into a governed operating model</h2>
-    <p>The project explores progression from GenAI assistance toward a structured workflow in which specialized stages coordinate discovery, evaluation, generation, validation, approval, tracking, and iterative improvement while preserving explicit human decision gates.</p>
-  </section>
-
-  <section class="section">
-    <p class="section-kicker">Workflow</p>
-    <h2>Workflow and approval points</h2>
-    <figure class="workflow-figure">
-      <a href="/images/agentic-career-workflow.svg" aria-label="Open the career workflow diagram at full size">
-        <img src="/images/agentic-career-workflow.svg" width="1200" height="700" loading="lazy"
-          alt="Eight workflow stages: Discover, Qualify and Evaluate, Human Decision, Generate, Validate, Approve, Track, and Learn and Improve. Human Decision and Approve are human-controlled gates." />
-      </a>
-      <figcaption>Human decisions and approval gates control progression. The person chooses work, authorizes materials, submits applications and confirms what actually happened.</figcaption>
-    </figure>
-    <details class="workflow-transcript">
-      <summary>Read the workflow stages</summary>
-      <ol class="step-list">
-        {project.workflow.map((step) => <li>{step}</li>)}
-      </ol>
-    </details>
-  </section>
-
-  <section class="section">
-    <p class="section-kicker">Design decisions</p>
-    <h2>How I structured the work</h2>
-    <p>My role combines product ownership, workflow design and testing. I use explicit states and decision points to make the next action clear and keep consequential choices with the person using the workflow.</p>
-    <figure class="workflow-figure">
-      <a href="/images/career-workflow-qualification.svg" aria-label="Open the qualification diagram at full size">
-        <img src="/images/career-workflow-qualification.svg" width="800" height="760" loading="lazy" alt="Discover a lead, then evaluate evidence. Unknowns remain on hold; unsuitable leads are not pursued. Supported leads become recommendations for a human decision." />
-      </a>
-      <figcaption>Evidence supports the recommendation; the person makes the pursuit decision.</figcaption>
-    </figure>
-    <details class="workflow-transcript">
-      <summary>Read the design decisions</summary>
-      <ol class="step-list">
-        {project.approach?.map((decision) => <li>{decision}</li>)}
-      </ol>
-    </details>
-  </section>
-
-  <section class="section">
-    <p class="section-kicker">Lessons from testing</p>
-    <h2>An output needs evidence of completion</h2>
-    <p>Testing exposed a key distinction: a prepared document, an approved version and a submitted application are separate events. The record preserves both confirmed events and unresolved status.</p>
-    <figure class="workflow-figure">
-      <a href="/images/career-workflow-evidence.svg" aria-label="Open the evidence diagram at full size">
-        <img src="/images/career-workflow-evidence.svg" width="800" height="760" loading="lazy" alt="Materials are prepared and reviewed for approval. Submission is confirmed only with evidence. Without evidence, submission stays unconfirmed. Both confirmed events and unresolved status are retained in the opportunity record." />
-      </a>
-      <figcaption>The opportunity record retains what happened and what still needs confirmation.</figcaption>
-    </figure>
-
-    <p>This case study demonstrates workflow design and governance. It does not claim a measured improvement in hiring outcomes.</p>
-  </section>
-
-  <section class="section">
-    <p class="section-kicker">Agentic properties</p>
-    <h2>Governed orchestration rather than simple prompting</h2>
-    <p>Validation controls the next step. Failed checks return work to revision; missing evidence puts it on hold. Work that passes moves to human review.</p>
-    <figure class="workflow-figure">
-      <a href="/images/career-workflow-validation.svg" aria-label="Open the validation diagram at full size">
-        <img src="/images/career-workflow-validation.svg" width="800" height="760" loading="lazy" alt="Generate materials, then validate. A failed check returns work to revision and generation. Missing evidence puts work on hold before revalidation. Passing checks moves work to human approval." />
-      </a>
-      <figcaption>Conditional routing makes revision and recovery part of the workflow.</figcaption>
-    </figure>
-    <details class="workflow-transcript">
-      <summary>Read the orchestration properties</summary>
-      <ul>
-        {project.agenticProperties.map((property) => <li>{property}</li>)}
-      </ul>
-    </details>
-  </section>
-
-  <section class="section">
-    <p class="section-kicker">Governance</p>
-    <h2>Human approval remains explicit</h2>
-    <figure class="workflow-figure">
-      <a href="/images/career-workflow-approval.svg" aria-label="Open the approval diagram at full size">
-        <img src="/images/career-workflow-approval.svg" width="800" height="760" loading="lazy" alt="The system evaluates opportunities, then a person chooses a pursuit. The system prepares and validates materials, then a person approves them. A person submits and confirms the application before the system tracks and summarizes the confirmed state." />
-      </a>
-      <figcaption>Teal blocks mark human decisions and actions. System assistance operates between those gates.</figcaption>
-    </figure>
-
-    <p>The public case study intentionally excludes private application records, recruiter communications, private prompts and source files, credentials, tokens, and sensitive implementation details. It also does not claim that Andrew personally coded every agent or automation capability.</p>
-  </section>
-
-  <section class="section">
-    <h2>Related expertise</h2>
-    <ul class="tag-list">
-      {skills.map((skill) => <li>{skill.label}</li>)}
-    </ul>
-    {portfolio && <p><a href={portfolio.url}>View Andrew's public AI portfolio project</a></p>}
-  </section>
-
-  <section class="section">
-    <h2>Continue</h2>
-    <p>Return to the <a href="/">profile</a>, browse <a href="/projects">all project evidence</a>, review the <a href="/resume">public resume</a>, or <a href="/contact">contact Andrew</a>.</p>
-  </section>
+<div id="workflow-story"><div class="case-content">
+<p class="breadcrumb">Independent work / Agentic Career Workflow</p>
+<section class="hero"><p class="eyebrow">Independent case study · Requirements through operational use</p><h1>A trusted record.<br>A repeatable workflow.<br>Continuous improvement.</h1><p class="lead">I designed and built an agent-assisted position-search workflow to identify suitable opportunities, prepare truthful application materials, and maintain a reliable record of what happened.</p><div class="role"><span>MY ROLE</span><p>Product owner · Workflow designer · Builder · Tester · Decision-maker</p></div></section>
+<div class="chapter-nav" aria-label="Case study outline"><span>Requirements</span><span>→ Design</span><span>→ Development</span><span>→ Testing</span><span>→ Deployment & use</span></div>
+<section class="chapter"><div class="label">THE PROBLEM</div><div><h2>Application volume needed a more reliable process.</h2><p>I needed true, verifiable career facts to build résumés and cover letters. The volume and inconsistency of job postings also made manually reading hundreds of descriptions impractical.</p><p>The challenge was to create a wide enough pool of suitable positions without sacrificing truthful claims or verifiable outcomes.</p></div></section>
+<section class="chapter"><div class="label">REQUIREMENTS</div><div><h2>Start with broad guidance.<br>Refine it through use.</h2><p>I reviewed career claims against my understanding and actual contribution, distinguishing exposure through meetings from active delivery experience. Supporting sources for overall AI-related claims included Northstar Ridge and this workflow.</p><div class="principles"><div><h3>Broader opportunity</h3><p>Search across supported disciplines and role types. Assess capability and career direction separately.</p></div><div><h3>Truthful evaluation</h3><p>Connect recommendations to experience. Preserve unknowns and distinguish eligibility from fit.</p></div><div><h3>Human decisions</h3><p>Keep pursuit, document approval, and confirmed application submission distinct.</p></div><div><h3>Reliable records</h3><p>Maintain consistent information and retain unfinished work for follow-through.</p></div></div><p>These requirements evolved through active use. The working version continues to improve as I learn where coverage or reliability needs attention.</p></div></section>
+<section class="chapter"><div class="label">DESIGN</div><div><h2>Make the trusted record the foundation.</h2><p>My first major design decision was to use GitHub as the gatekeeper. Changes require a pull request and my approval before merging into the trusted record.</p><p>Each position has a unique identifier connecting its announcement, résumé, cover letter, application status, and employer responses. Reports are generated from those records.</p><div class="record-visual" aria-label="One position identifier connects its posting, documents, status and responses, which supply reports"><div class="record-heading">ONE POSITION · ONE UNIQUE IDENTIFIER</div><div class="record-items"><span>Position announcement</span><span>Résumé & cover letter</span><span>Application status</span><span>Employer response</span></div><p>Position records → Consistent reporting → Process improvement</p></div></div></section>
+<section class="chapter"><div class="label">DEVELOPMENT</div><div><h2>Turn the rules into agent-assisted work.</h2><p>I built a primary agent persona to apply the workflow’s rules and guidelines, using structured Markdown instructions and scripts to perform position-search tasks.</p><p>I later introduced a specialized reporting agent that the primary agent can call for designated reports, separating workflow coordination from a bounded reporting responsibility.</p><div class="agent-roles"><div><span>PRIMARY AGENT</span><h3>Interaction & workflow coordination</h3></div><div><span>REPORTING AGENT</span><h3>Designated reports, called when needed</h3></div></div></div></section>
+<section class="chapter"><div class="label">TESTING</div><div><h2>Use observed failures to improve reliability.</h2><p>Early use exposed assumptions and missed rules that led to incorrect outputs and inaccurate or conflicting pull requests. I identified excessive instruction complexity as a contributing cause.</p><p>I simplified the core rules, moved detailed guidance into focused Markdown files and scripts, and required the agent to check the applicable workflow rather than fill gaps with assumptions. These changes reduced the incorrect outputs and conflicting PRs I observed.</p></div></section>
+<section class="chapter"><div class="label">DEPLOYMENT & USE</div><div><h2>Keep delivering while the workflow evolves.</h2><p>I used the workflow from the beginning. Testing happened through real tasks and review of the results, while the PR process controlled both fixes and new features.</p><article class="field-example"><p class="eyebrow">A lesson from active use</p><h3>A small test passed.<br>A larger workload exposed the limit.</h3><p>I added processing of unread job-alert emails and marking them as read to distinguish messages already used. A small test worked, and the PR was merged.</p><p>Broader use took longer to process each email. The agent’s execution limit caused searches to return no results. The PR history let me reverse the specific changes and retain the email-reading portion.</p><div class="learning"><b>What I learned</b><p>Test representative workloads against execution limits, and preserve a practical path to reverse changes.</p></div></article></div></section>
+<section class="diagrams" aria-labelledby="ap-diagrams-heading"><p class="eyebrow">Explore the operating model</p><h2 id="ap-diagrams-heading">The workflow behind the story.</h2><p>The diagrams show the stages, evidence handling, and human approval gates.</p><div class="diagram-tabs" role="tablist" aria-label="Workflow diagrams"><button id="ap-overview-tab" role="tab" aria-controls="ap-diagram-panel" aria-selected="true" data-diagram="0">Overview</button><button id="ap-qualification-tab" role="tab" aria-controls="ap-diagram-panel" aria-selected="false" data-diagram="1">Qualification</button><button id="ap-evidence-tab" role="tab" aria-controls="ap-diagram-panel" aria-selected="false" data-diagram="2">Evidence</button><button id="ap-validation-tab" role="tab" aria-controls="ap-diagram-panel" aria-selected="false" data-diagram="3">Validation</button><button id="ap-approval-tab" role="tab" aria-controls="ap-diagram-panel" aria-selected="false" data-diagram="4">Human gates</button></div><div id="ap-diagram-panel" role="tabpanel" aria-labelledby="ap-overview-tab"><figure data-figure="0"><a href="/images/agentic-career-workflow.svg" aria-label="Open the agentic career workflow diagram at full size"><img loading="lazy" src="/images/agentic-career-workflow.svg" alt="Eight-stage career workflow from discovery through learning, with explicit human decisions and approval."/></a><figcaption>Discovery → Qualification → Human decision → Generation → Validation → Approval → Tracking → Learning</figcaption></figure><figure data-figure="1" hidden><a href="/images/career-workflow-qualification.svg" aria-label="Open the career workflow qualification diagram at full size"><img loading="lazy" src="/images/career-workflow-qualification.svg" alt="Qualification separates supported recommendations, unresolved evidence, and unsuitable leads."/></a><figcaption>Evidence supports a recommendation. The person decides whether to pursue it.</figcaption></figure><figure data-figure="2" hidden><a href="/images/career-workflow-evidence.svg" aria-label="Open the career workflow evidence diagram at full size"><img loading="lazy" src="/images/career-workflow-evidence.svg" alt="Prepared documents, approved documents and confirmed application submissions are distinct events."/></a><figcaption>Prepared and approved materials do not establish that an application was submitted.</figcaption></figure><figure data-figure="3" hidden><a href="/images/career-workflow-validation.svg" aria-label="Open the career workflow validation diagram at full size"><img loading="lazy" src="/images/career-workflow-validation.svg" alt="Validation sends failures back to revision, holds missing evidence, and routes passing work to human review."/></a><figcaption>Failed checks return to revision; missing evidence stays unresolved.</figcaption></figure><figure data-figure="4" hidden><a href="/images/career-workflow-approval.svg" aria-label="Open the career workflow approval diagram at full size"><img loading="lazy" src="/images/career-workflow-approval.svg" alt="Human choices govern pursuit, approval of materials and confirmation of application submission."/></a><figcaption>Human decisions control consequential actions throughout the workflow.</figcaption></figure></div></section>
+<section class="closing"><p class="eyebrow">Continuing development</p><h2>Broaden useful choices.<br>Preserve trust in the results.</h2><p>This remains a working product. I continue to refine its requirements and behavior through use, keeping truthful claims, verifiable outcomes, and human judgment at the center.</p></section>
+<div class="end-nav"><a href="/independent-work">← Independent work</a><a href="/projects">Explore enterprise programs →</a></div>
+</div></div>
 </BaseLayout>
-
 <style>
-  .workflow-figure { margin: 1.75rem 0 1rem; }
-  .workflow-figure a { display: block; }
-  .workflow-figure:has(img[width="800"]) { max-width: 50rem; margin-inline: auto; }
-  .workflow-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--brand-border); }
-  .workflow-figure figcaption { max-width: 56rem; margin-top: 0.85rem; color: var(--brand-text); font-size: 0.95rem; }
-  .workflow-transcript { margin-top: 1.25rem; }
-  .workflow-transcript summary { cursor: pointer; font-weight: 700; color: var(--brand-navy); }
+#workflow-story{color-scheme:light;--paper:light-dark(#faf9f6,#151c22);--ink:light-dark(#192c3e,#e6edf2);--muted-ink:light-dark(#536271,#afbdc8);--line:light-dark(#d9dfe0,#36444c);--green:light-dark(#236658,#96d2be);--wash:light-dark(#eaf0ed,#24352f);font-family:Arial,sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.65}
+#workflow-story *{box-sizing:border-box}#workflow-story [hidden]{display:none!important}#workflow-story header{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:23px 34px;border-bottom:1px solid var(--line)}#workflow-story .brand{font-size:14px;letter-spacing:1.3px;font-weight:600;white-space:nowrap}#workflow-story .brand b{color:var(--green)}#workflow-story header nav{display:flex;gap:16px;flex-wrap:wrap;font-size:12px}#workflow-story .active{color:var(--green);text-decoration:underline;text-underline-offset:6px}#workflow-story .case-content{padding:28px 42px 38px}#workflow-story .breadcrumb{font-size:11px;margin-bottom:40px}#workflow-story p{color:var(--muted-ink);margin:0 0 17px}#workflow-story .eyebrow,#workflow-story .label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-weight:600}#workflow-story h1{font-family:Georgia,serif;font-size:clamp(32px,5vw,53px);font-weight:400;line-height:1.12;letter-spacing:-1.5px;margin:15px 0 24px}#workflow-story .hero{max-width:760px}#workflow-story .lead{font-size:17px;line-height:1.7}#workflow-story h2{font-family:Georgia,serif;font-size:clamp(25px,3.3vw,32px);line-height:1.2;font-weight:400;letter-spacing:-.4px;margin:0 0 20px}#workflow-story h3{font-size:16px;line-height:1.45;font-weight:500;margin:0 0 9px}#workflow-story .role{margin:25px 0 35px;border-left:2px solid var(--green);padding-left:16px}#workflow-story .role span{font-size:10px;letter-spacing:1px;color:var(--green)}#workflow-story .role p{color:var(--ink);font-size:13px;margin:5px 0 0}#workflow-story .chapter-nav{display:flex;gap:8px 16px;flex-wrap:wrap;border-top:1px solid var(--line);padding:20px 0;font-size:11px;color:var(--green)}#workflow-story .chapter{display:grid;grid-template-columns:145px minmax(0,1fr);gap:30px;border-top:1px solid var(--line);padding:35px 0}#workflow-story .label{padding-top:5px}#workflow-story .principles{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:24px 0}#workflow-story .principles>div{padding-top:14px;border-top:1px solid var(--line)}#workflow-story .principles p{font-size:13px;margin:0}#workflow-story .record-visual{background:var(--wash);padding:22px;margin-top:25px}#workflow-story .record-heading{font-size:11px;letter-spacing:1px;color:var(--green);margin-bottom:14px}#workflow-story .record-items{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;font-size:13px}#workflow-story .record-visual p{font-size:11px;border-top:1px solid var(--line);padding-top:15px;margin:18px 0 0;color:var(--green)}#workflow-story .agent-roles{display:grid;grid-template-columns:1fr 1fr;gap:24px;border-top:1px solid var(--line);padding-top:18px;margin-top:24px}#workflow-story .agent-roles span{font-size:10px;letter-spacing:1px;color:var(--green);display:block;margin-bottom:8px}#workflow-story .agent-roles h3{font-size:14px}#workflow-story .field-example{padding:26px;background:var(--wash);margin-top:26px}#workflow-story .field-example h3{font-family:Georgia,serif;font-size:25px;line-height:1.25;font-weight:400;margin-bottom:18px}#workflow-story .field-example p{font-size:13px}#workflow-story .learning{border-top:1px solid var(--line);padding-top:17px;margin-top:20px}#workflow-story .learning b{font-size:12px;font-weight:500;color:var(--green)}#workflow-story .learning p{margin:6px 0 0;color:var(--ink)}#workflow-story .diagrams{border-top:1px solid var(--line);padding:35px 0}#workflow-story .diagram-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 18px}#workflow-story button{font-family:inherit;font-size:12px;padding:10px 14px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);cursor:pointer}#workflow-story button[aria-selected=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}#workflow-story button:focus-visible{outline:2px solid var(--green);outline-offset:3px}#workflow-story figure{margin:0}#workflow-story img{width:100%;height:auto;display:block}#workflow-story figure:not([data-figure="0"]){max-width:650px;margin:auto}#workflow-story figcaption{font-size:11px;color:var(--muted-ink);margin-top:12px}#workflow-story .closing{padding:30px 0;border-top:1px solid var(--line);max-width:760px}#workflow-story .end-nav{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}#workflow-story a{color:var(--green);font-size:12px;text-underline-offset:4px}#workflow-story footer{display:flex;justify-content:space-between;gap:20px;padding:23px 34px;border-top:1px solid var(--line);font-size:10px;letter-spacing:1px;color:var(--muted-ink)}
+@media(max-width:650px){#workflow-story header{flex-direction:column;align-items:flex-start;padding:22px}#workflow-story .case-content{padding:24px 22px}#workflow-story .chapter{grid-template-columns:1fr;gap:14px}#workflow-story .principles,#workflow-story .agent-roles{grid-template-columns:1fr}#workflow-story footer{flex-direction:column}#workflow-story .field-example{padding:20px}}
+
+#workflow-story .case-content { padding: 0; }
 </style>
+<script>
+const root = document.getElementById('workflow-story');
+if (root) {
+  const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>('button[data-diagram]'));
+  const figures = Array.from(root.querySelectorAll<HTMLElement>('figure[data-figure]'));
+  const panel = root.querySelector('#ap-diagram-panel');
+  const select = (index: number) => {
+    figures.forEach((figure, i) => { figure.hidden = i !== index; });
+    buttons.forEach((button, i) => {
+      button.setAttribute('aria-selected', String(i === index));
+      button.tabIndex = i === index ? 0 : -1;
+    });
+    panel?.setAttribute('aria-labelledby', buttons[index].id);
+  };
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => select(index));
+    button.addEventListener('keydown', event => {
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + buttons.length) % buttons.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = buttons.length - 1;
+      else return;
+      event.preventDefault();
+      select(next);
+      buttons[next].focus();
+    });
+  });
+  select(0);
+}
+</script>
