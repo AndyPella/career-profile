@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-18 — Public V5 résumé download
+
+- Publish the approved V5 wording as a reviewed three-page PDF with stable download links on the homepage and résumé page.
+- Record content, policy, registry, rendering-profile and PDF fingerprints in public-safe publication metadata.
+- Add a reusable PDF renderer, publication checks, change-detection tests and controlled replacement runbook.
+- Monitor the approved source daily; prepare updates through PR review and require explicit selection of successor general versions.
+
 ## 2026-11-18 — Workflow delivery story
 
 - Replace the workflow case-study introduction with the approved requirements, design, development, testing, deployment, and use narrative.

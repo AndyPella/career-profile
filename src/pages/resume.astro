@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import career from '../data/career.json';
+import download from '../../public/downloads/resume-version.json';
 
 const resume = career.resume;
 const experiences = resume.experienceIds
@@ -17,6 +18,8 @@ const projects = resume.projectIds
     <h1>Andrew Pella</h1>
     <p class="hero-positioning">{resume.headline}</p>
     <p>{career.profile.location}</p>
+    <div class="hero-actions"><a class="button" href={download.url} download>Download résumé (PDF)</a></div>
+    <p class="download-caption">{download.version} · {download.page_count} pages · Published {download.published_on}</p>
   </section>
 
   <section class="section resume-section">
@@ -71,3 +74,5 @@ const projects = resume.projectIds
     <p>Explore <a href="/experience">career experience</a>, review <a href="/projects">project evidence</a>, or <a href="/contact">contact Andrew</a>.</p>
   </section>
 </BaseLayout>
+
+<style>.download-caption { font-size: .85rem; color: #536271; }</style>
