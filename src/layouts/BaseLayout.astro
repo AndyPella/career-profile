@@ -34,6 +34,10 @@ const person = {
 };
 
 const projectByPath: Record<string, string> = {
+  '/projects/conway-enterprise-programs': 'conway-enterprise-programs',
+  '/projects/enterprise-mobility': 'enterprise-mobility',
+  '/projects/sre-portfolio': 'sre-portfolio',
+  '/projects/global-endpoint-services': 'global-endpoint-services',
   '/projects/otel-evaluation': 'otel-evaluation',
   '/projects/northstar-ridge': 'northstar-ridge',
   '/projects/agentic-job-search': 'agentic-career-workflow',
@@ -74,6 +78,7 @@ const structuredData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="site-version" content="1.1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />

@@ -1,40 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import career from '../../data/career.json';
-
-const routes: Record<string, string | undefined> = {
-  'otel-evaluation': '/projects/otel-evaluation',
-  'agentic-career-workflow': '/projects/agentic-job-search',
-  'northstar-ridge': '/projects/northstar-ridge',
-};
+import ProgramCards from '../../components/ProgramCards.astro';
 ---
-
-<BaseLayout title="Projects — Andrew Pella" description="Project evidence across OpenTelemetry, AI-assisted operations, automation, and governed agentic workflows.">
-  <section class="page-intro">
-    <p class="eyebrow">Projects</p>
-    <h1>Evidence through applied work</h1>
-    <p class="hero-positioning">Selected projects connect product leadership claims to concrete evaluation, workflow, governance, and portfolio evidence.</p>
-  </section>
-
-  <section class="section" aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Project and case-study index</h2>
-    <div class="card-grid">
-      {career.projects.map((project) => {
-        const route = routes[project.id];
-        return (
-          <article class="card">
-            <h3>{route ? <a href={route}>{project.title}</a> : project.title}</h3>
-            <p class="card-role">{project.role}</p>
-            <p>{project.summary}</p>
-            {route && <p><a href={route}>View project evidence</a></p>}
-          </article>
-        );
-      })}
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Continue</h2>
-    <p>Connect this evidence to <a href="/experience">career experience</a>, review the <a href="/resume">public resume</a>, or <a href="/contact">contact Andrew</a>.</p>
-  </section>
+<BaseLayout title="Selected Programs & Transformations — Andrew Pella" description="Enterprise program ownership at Con-way and Salesforce: nationwide infrastructure modernization, mobility, SRE platforms, and global endpoint services.">
+  <section class="page-intro"><p class="eyebrow">Selected programs & transformations</p><h1>Work I owned.<br />Technology I helped deliver.</h1><p class="hero-positioning">Enterprise initiatives spanning technical architecture, product direction, cross-team delivery, and production operations.</p></section>
+  <section class="section" aria-label="Selected enterprise programs"><ProgramCards /></section>
+  <section class="section"><h2>A career built across the full lifecycle</h2><p>Requirements and technical evaluation → architecture and proof of concept → pilot and phased rollout → production operations and modernization.</p><a href="/experience">Explore the career behind these programs →</a></section>
+  <section class="section"><h2>Independent projects & applied AI</h2><p>Explore recent independent product design and AI-assisted workflow case studies.</p><a href="/independent-work">View independent work →</a></section>
 </BaseLayout>

@@ -1,114 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import career from '../data/career.json';
-
-const { name, workingTitle, positioning, summary, summaryDetail } = career.profile;
-
-const homepageSkillIds = new Set([
-  'product-management',
-  'technical-program-leadership',
-  'enterprise-infrastructure',
-  'it-operations',
-  'enterprise-platforms',
-  'platform-modernization',
-  'endpoint-services',
-  'digital-workplace',
-  'it-service-delivery',
-  'observability',
-  'automation',
-  'ai-assisted-workflows',
-]);
-const homepageSkills = career.skills.filter((skill) => homepageSkillIds.has(skill.id));
-
-const featuredProjects = career.projects.filter((project) =>
-  ['otel-evaluation', 'agentic-career-workflow', 'northstar-ridge'].includes(project.id)
-);
-const projectRoutes: Record<string, string | undefined> = {
-  'otel-evaluation': '/projects/otel-evaluation',
-  'agentic-career-workflow': '/projects/agentic-job-search',
-  'northstar-ridge': '/projects/northstar-ridge',
-};
-const linkedin = career.links.find((link) => link.id === 'linkedin');
-const github = career.links.find((link) => link.id === 'github-profile');
-const email = career.contact.email;
+import ProgramCards from '../components/ProgramCards.astro';
+import ScopeStats from '../components/ScopeStats.astro';
+const linkedin = career.links.find(link => link.id === 'linkedin');
+const github = career.links.find(link => link.id === 'github-profile');
 ---
-
-<BaseLayout title={`${name} — ${workingTitle}`} description={positioning}>
+<BaseLayout title="Andrew Pella — Technical Project & Program Leader" description={career.profile.summaryDetail}>
   <section class="hero" aria-labelledby="profile-heading">
-    <p class="eyebrow">{workingTitle}</p>
-    <h1 id="profile-heading">{name}</h1>
-    <p class="hero-positioning">{positioning}</p>
-    <p class="hero-summary">{summary}</p>
-
-    <div class="hero-actions" aria-label="Primary profile actions">
-      <a class="button" href="/experience">View experience</a>
-      <a class="button button-secondary" href="/contact">Contact</a>
-    </div>
+    <p class="eyebrow">Technical project & program leadership</p>
+    <h1 id="profile-heading">Technical ownership.<br />From first requirements<br />to production operations.</h1>
+    <p class="hero-positioning">{career.profile.summary}</p>
+    <p class="hero-summary">{career.profile.summaryDetail}</p>
+    <div class="hero-actions"><a class="button" href="/projects">Explore selected programs →</a><a class="button button-secondary" href="/experience">View career experience</a></div>
   </section>
-
-  <section id="expertise" class="section" aria-labelledby="expertise-heading">
-    <p class="section-kicker">Discovery</p>
-    <h2 id="expertise-heading">Areas of expertise</h2>
-    <p>
-      Core experience spans technical product and program leadership, enterprise infrastructure and IT operations,
-      endpoint and digital workplace services, observability platform product leadership, automation, and AI-assisted operations.
-    </p>
-    <ul class="tag-list" aria-label="Areas of expertise">
-      {homepageSkills.map((skill) => <li>{skill.label}</li>)}
-    </ul>
+  <ScopeStats />
+  <section class="section" id="evidence" aria-labelledby="evidence-heading">
+    <p class="section-kicker">Selected programs & transformations</p>
+    <h2 id="evidence-heading">Enterprise scale. Clear ownership.</h2>
+    <ProgramCards />
   </section>
-
-  <section class="section" aria-labelledby="career-heading">
-    <p class="section-kicker">Context</p>
-    <h2 id="career-heading">Product and program leadership grounded in technical operations</h2>
-    <p>{summaryDetail}</p>
+  <section class="section" aria-labelledby="independent-heading">
+    <p class="section-kicker">Independent projects & applied AI</p>
+    <h2 id="independent-heading">New tools. The same ownership mindset.</h2>
+    <p>Recent independent work exploring product design, AI-assisted operations, and governed workflows.</p>
+    <a href="/independent-work">Explore independent work →</a>
   </section>
-
-  <section id="evidence" class="section" aria-labelledby="evidence-heading">
-    <p class="section-kicker">Evidence</p>
-    <h2 id="evidence-heading">Selected work</h2>
-    <p>
-      These projects provide concrete evidence across enterprise technology, platform product leadership,
-      observability, automation, and AI-assisted workflow design.
-    </p>
-
-    <div class="card-grid">
-      {featuredProjects.map((project) => {
-        const route = projectRoutes[project.id];
-        return (
-          <article class="card">
-            <h3>{project.title}</h3>
-            <p class="card-role">{project.role}</p>
-            <p>{project.summary}</p>
-            {route && <p><a href={route}>View evidence</a></p>}
-          </article>
-        );
-      })}
-    </div>
-  </section>
-
-  <section class="section discovery-path" aria-labelledby="path-heading">
-    <p class="section-kicker">How to use this site</p>
-    <h2 id="path-heading">Discovery → Evidence → Contact</h2>
-    <ol>
-      <li><strong>Discovery:</strong> identify relevant expertise and leadership domains.</li>
-      <li><strong>Evidence:</strong> review <a href="/experience">experience</a>, <a href="/projects">projects</a>, and the <a href="/resume">public resume</a>.</li>
-      <li><strong>Contact:</strong> use the <a href="/contact">contact page</a> to connect by email or LinkedIn.</li>
-    </ol>
-    <p><a href="/explore">Explore the complete site map</a></p>
-  </section>
-
-  <section id="contact" class="section contact-panel" aria-labelledby="contact-heading">
-    <p class="section-kicker">Contact</p>
+  <section class="section contact-panel" id="contact" aria-labelledby="contact-heading">
     <h2 id="contact-heading">Connect with Andrew Pella</h2>
-    <p>
-      Email and LinkedIn are available professional contact routes. GitHub provides additional public
-      portfolio and project context.
-    </p>
-    <div class="hero-actions">
-      <a class="button" href={`mailto:${email}`}>Email Andrew</a>
-      {linkedin && <a class="button button-secondary" href={linkedin.url} rel="me">LinkedIn</a>}
-      {github && <a class="button button-secondary" href={github.url} rel="me">GitHub</a>}
-    </div>
+    <div class="hero-actions"><a class="button" href={`mailto:${career.contact.email}`}>Email Andrew</a>{linkedin && <a class="button button-secondary" href={linkedin.url} rel="me">LinkedIn</a>}{github && <a class="button button-secondary" href={github.url} rel="me">GitHub</a>}</div>
   </section>
 </BaseLayout>
