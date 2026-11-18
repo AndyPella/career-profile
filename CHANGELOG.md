@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-18 — Workflow delivery story
+
+- Replace the workflow case-study introduction with the approved requirements, design, development, testing, deployment, and use narrative.
+- Include the email-processing rollback example and retain all five diagrams in an accessible selector with full-size links.
+- Update the shared project summary, role, approach, and qualitative outcomes.
+
 ## v1.1.0 — 2026-11-18
 
 - Reposition the homepage around technical project and program ownership from requirements through production operations.
