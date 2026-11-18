@@ -381,3 +381,38 @@ main {
     text-decoration: none;
   }
 }
+
+/* v1.1: approved editorial portfolio presentation. */
+:root { --brand-navy: #192c3e; --brand-blue: #236658; --brand-blue-light: #eaf0ed; --brand-text: #192c3e; --brand-border: #d9dfe0; --brand-surface: #eaf0ed; background: #faf9f6; }
+body { background: #faf9f6; }
+.site-header { background: #faf9f6; }
+.site-shell { width: min(68rem, calc(100% - 3rem)); }
+.hero, .page-intro { max-width: 58rem; padding: 2rem 0; }
+.hero h1, .page-intro h1 { font-family: Georgia, serif; font-size: clamp(2.3rem, 5.5vw, 4.4rem); font-weight: 400; line-height: 1.12; letter-spacing: -0.035em; }
+.hero-positioning { max-width: 48rem; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.65; }
+.hero-summary { max-width: 48rem; color: #536271; }
+.section { max-width: none; }
+.section h2 { font-family: Georgia, serif; font-weight: 400; }
+.section h3 { font-weight: 500; }
+.eyebrow, .section-kicker { font-size: .75rem; letter-spacing: .12em; }
+.program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.card { background: var(--brand-surface); border: 0; border-radius: 3px; padding: 1.6rem; }
+.card::before { display: none; }
+.card h3 { font-size: 1.25rem; }
+.card p { color: #435562; }
+.card .section-kicker { color: var(--brand-blue); }
+.scope-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; padding: 1.75rem 0; border-top: 1px solid var(--brand-border); }
+.scope-stats strong { display: block; font-family: Georgia,serif; font-size: clamp(1.3rem,3vw,2rem); font-weight: 400; }
+.scope-stats span { display: block; margin-top: .3rem; font-size: .85rem; color: #536271; }
+.case-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.case-grid section { border-top: 1px solid var(--brand-border); padding-top: 1.25rem; }
+.case-grid h2 { font-family: inherit; font-size: 1.1rem; font-weight: 600; }
+.button { border-radius: 3px; font-weight: 500; }
+.button-secondary { background: transparent; }
+.site-footer { color: var(--brand-text); background: transparent; border-top: 1px solid var(--brand-border); }
+.footer-wordmark, .footer-nav a { color: var(--brand-text); }
+.footer-tagline, .release-version { color: #536271; }
+.release-version { font-size: .8rem; margin-bottom: 0; }
+summary { cursor: pointer; color: var(--brand-blue); padding: .5rem 0; }
+:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 4px; }
+@media(max-width:40rem) { .program-grid, .case-grid { grid-template-columns: 1fr; } .scope-stats { gap: 1rem; } .site-shell { width: calc(100% - 2rem); } .scope-stats span { font-size: .75rem; } }
